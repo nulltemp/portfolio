@@ -8,17 +8,23 @@
 
     <v-content>
       <profile />
+      <skill />
+      <work />
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Profile from "./components/Profile";
+import Skill from "./components/Skill";
+import Work from "./components/Work";
 
 export default {
   name: "App",
   components: {
-    Profile
+    Profile,
+    Skill,
+    Work
   }
 };
 </script>
