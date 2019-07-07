@@ -17,16 +17,6 @@
             </v-list-tile>
           </v-list>
         </v-card>
-        <v-card>
-          <v-card-title><h4>リンク</h4></v-card-title>
-          <v-list>
-            <v-list-tile v-for="(link, index) in links" :key="index">
-              <v-list-tile-content
-                ><a :href="link.value">{{ link.title }}</a></v-list-tile-content
-              >
-            </v-list-tile>
-          </v-list>
-        </v-card>
       </v-card-text>
     </v-card>
   </base-layout>
@@ -45,12 +35,6 @@ export default {
         { title: "バックエンド", value: "5年程度" },
         { title: "フロントエンド", value: "1年程度" },
         { title: "その他インフラ等", value: "必要に応じて" }
-      ],
-      links: [
-        { title: "GitHub", value: "https://github.com/nulltemp" },
-        { title: "Qiita", value: "https://qiita.com/nulltemp" },
-        { title: "Twitter", value: "https://twitter.com/nulltemp1" },
-        { title: "Blog", value: "https://nulltemp.hatenablog.com/" }
       ]
     };
   }
