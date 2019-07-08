@@ -11,9 +11,11 @@
           <v-list>
             <v-list-tile v-for="(work, index) in works" :key="index">
               <v-list-tile-content>{{ work.title }}</v-list-tile-content>
-              <v-list-tile-content class="align-end">
-                {{ work.value }}
-              </v-list-tile-content>
+              <div class="text-xs-right">
+                <v-list-tile-content>
+                  {{ work.value }}
+                </v-list-tile-content>
+              </div>
             </v-list-tile>
           </v-list>
         </v-card>

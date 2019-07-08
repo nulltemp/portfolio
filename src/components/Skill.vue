@@ -10,9 +10,11 @@
           <v-list>
             <v-list-tile v-for="(skill, index) in skills" :key="index">
               <v-list-tile-content>{{ skill.title }}</v-list-tile-content>
-              <v-list-tile-content class="align-end">
-                {{ skill.value }}
-              </v-list-tile-content>
+              <div class="text-xs-right">
+                <v-list-tile-content>
+                  {{ skill.value }}
+                </v-list-tile-content>
+              </div>
             </v-list-tile>
           </v-list>
           <v-card-text>
@@ -38,9 +40,11 @@
               <v-list-tile-content>{{
                 qualification.name
               }}</v-list-tile-content>
-              <v-list-tile-content class="align-end">
-                {{ qualification.date }}
-              </v-list-tile-content>
+              <div class="text-xs-right">
+                <v-list-tile-content>
+                  {{ qualification.date }}
+                </v-list-tile-content>
+              </div>
             </v-list-tile>
           </v-list>
         </v-card>
