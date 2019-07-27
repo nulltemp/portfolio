@@ -5,7 +5,7 @@
         <h1>Profile</h1>
       </v-card-title>
       <v-card-text class="text-xs-left">
-        <p>フリーのエンジニア</p>
+        <p>フリーのエンジニアのnulltempです</p>
         <v-card>
           <v-card-title><h4>主な職歴</h4></v-card-title>
           <v-list>

@@ -86,7 +86,8 @@ export default {
         "Spring Framework",
         "Oracle Database",
         "AWS Lambda",
-        "Sequelize"
+        "Sequelize",
+        "DynamoDB"
       ],
       otherFrontendSkills: [
         "Vue.js",

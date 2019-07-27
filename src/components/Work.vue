@@ -68,7 +68,8 @@ export default {
             "PostgreSQL",
             "Sequelize",
             "Oracle Database",
-            "Vuex"
+            "Vuex",
+            "DynamoDB"
           ]
         },
         {
