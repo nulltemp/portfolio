@@ -87,7 +87,8 @@ export default {
         "Oracle Database",
         "AWS Lambda",
         "Sequelize",
-        "DynamoDB"
+        "DynamoDB",
+        "WebSocket"
       ],
       otherFrontendSkills: [
         "Vue.js",

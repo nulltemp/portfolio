@@ -69,7 +69,8 @@ export default {
             "Sequelize",
             "Oracle Database",
             "Vuex",
-            "DynamoDB"
+            "DynamoDB",
+            "WebSocket"
           ]
         },
         {
