@@ -19,8 +19,17 @@
           </v-list>
           <v-card-text>
             <div>その他（バックエンド）</div>
-            <template v-for="(skill, index) in otherBackendSkills">
-              <v-chip :key="index">{{ skill }}</v-chip>
+            <template v-for="(backend, index) in otherBackendSkills">
+              <v-card :key="index">
+                <v-card-text>
+                  <div>{{ backend.title }}</div>
+                  <v-chip
+                    :key="index"
+                    v-for="(skill, index) in backend.skills"
+                    >{{ skill }}</v-chip
+                  >
+                </v-card-text>
+              </v-card>
             </template>
           </v-card-text>
           <v-card-text>
@@ -68,27 +77,49 @@ export default {
         { title: "PHP", value: "1年程度" }
       ],
       otherBackendSkills: [
-        "Tomcat",
-        "PostgreSQL",
-        "ShellScript",
-        "PDF",
-        "JUnit",
-        "Jersey",
-        "Pacemaker",
-        "MySQL",
-        "Linux",
-        "FFmpeg",
-        "Apache",
-        "Wowza Streaming Engine",
-        "HTTP Live Streaming",
-        "Heartbeat",
-        "Serverless Framework",
-        "Spring Framework",
-        "Oracle Database",
-        "AWS Lambda",
-        "Sequelize",
-        "DynamoDB",
-        "WebSocket"
+        {
+          title: "DB",
+          skills: [
+            "PostgreSQL",
+            "MySQL",
+            "DynamoDB",
+            "SQL Server",
+            "Oracle Database"
+          ]
+        },
+        {
+          title: "Framework",
+          skills: ["Spring Framework", "Jersey", "Serverless Framework"]
+        },
+        {
+          title: "Test",
+          skills: ["JUnit", "Spock"]
+        },
+        {
+          title: "OS",
+          skills: ["Linux"]
+        },
+        {
+          title: "ORM",
+          skills: ["Sequelize", "MyBatis", "Doma"]
+        },
+        {
+          title: "Others",
+          skills: [
+            "ShellScript",
+            "PDF",
+            "Pacemaker",
+            "FFmpeg",
+            "Apache",
+            "Wowza Streaming Engine",
+            "HTTP Live Streaming",
+            "Heartbeat",
+            "Tomcat",
+            "AWS Lambda",
+            "WebSocket",
+            "Flyway"
+          ]
+        }
       ],
       otherFrontendSkills: [
         "Vue.js",

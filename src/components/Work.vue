@@ -48,6 +48,22 @@ export default {
     return {
       works: [
         {
+          title: "施工現場管理システムの開発",
+          contents: ["管理画面の改修及び機能追加"],
+          period: "2019年10月～現在",
+          technologies: [
+            "Java",
+            "JavaScript",
+            "Spring Framework",
+            "Vue.js",
+            "MyBatis",
+            "Spock",
+            "SQL Server",
+            "Flyway",
+            "jQuery"
+          ]
+        },
+        {
           title: "人材紹介システムの開発",
           contents: [
             "AWS Lambdaを使用したバッチ処理",
@@ -55,7 +71,7 @@ export default {
             "SMS等を使用した求職者への連絡機能",
             "その他認証機能のリプレースや既存機能の修正等"
           ],
-          period: "2018年08月～現在",
+          period: "2018年08月～2019年09月",
           technologies: [
             "Java",
             "JavaScript",
@@ -70,7 +86,8 @@ export default {
             "Oracle Database",
             "Vuex",
             "DynamoDB",
-            "WebSocket"
+            "WebSocket",
+            "Doma"
           ]
         },
         {
