@@ -7,17 +7,19 @@
       <v-spacer />
       <v-toolbar-items>
         <v-btn flat href="#profile">profile</v-btn>
+        <v-btn flat href="#link">link</v-btn>
         <v-btn flat href="#skill">skill</v-btn>
         <v-btn flat href="#work">work</v-btn>
-        <v-btn flat href="#link">link</v-btn>
+        <v-btn flat href="#contact">contact</v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
     <v-content>
       <profile id="profile" />
+      <Link id="link" />
       <skill id="skill" />
       <work id="work" />
-      <Link id="link" />
+      <contact id="contact" />
     </v-content>
   </v-app>
 </template>
@@ -27,6 +29,7 @@ import Profile from "./components/Profile";
 import Skill from "./components/Skill";
 import Work from "./components/Work";
 import Link from "./components/Link";
+import Contact from "./components/Contact";
 
 export default {
   name: "App",
@@ -34,7 +37,8 @@ export default {
     Profile,
     Skill,
     Work,
-    Link
+    Link,
+    Contact
   }
 };
 </script>
