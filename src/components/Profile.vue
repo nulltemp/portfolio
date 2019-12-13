@@ -2,21 +2,19 @@
   <base-layout>
     <v-card>
       <v-card-title>
-        <h1>Profile</h1>
+        <h2>Profile</h2>
       </v-card-title>
-      <v-card-text class="text-xs-left">
+      <v-card-text class="text-left">
         <p>フリーのエンジニアのnulltempです</p>
         <v-card>
           <v-card-title><h4>主な職歴</h4></v-card-title>
           <v-list>
-            <v-list-tile v-for="(work, index) in works" :key="index">
-              <v-list-tile-content>{{ work.title }}</v-list-tile-content>
-              <div class="text-xs-right">
-                <v-list-tile-content>
-                  {{ work.value }}
-                </v-list-tile-content>
-              </div>
-            </v-list-tile>
+            <v-list-item v-for="(work, index) in works" :key="index">
+              <v-list-item-content>
+                <v-list-item-title>{{ work.title }}</v-list-item-title>
+              </v-list-item-content>
+              {{ work.value }}
+            </v-list-item>
           </v-list>
         </v-card>
       </v-card-text>

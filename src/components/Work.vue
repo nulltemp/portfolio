@@ -2,9 +2,9 @@
   <base-layout>
     <v-card>
       <v-card-title>
-        <h1>Works</h1>
+        <h2>Works</h2>
       </v-card-title>
-      <v-card-text class="text-xs-left" v-for="work in works" :key="work.title">
+      <v-card-text class="text-left" v-for="work in works" :key="work.title">
         <v-card>
           <v-card-title
             ><h4>{{ work.title }}</h4></v-card-title
@@ -26,9 +26,12 @@
           <v-card>
             <v-card-title>主な使用技術</v-card-title>
             <v-card-text
-              ><v-chip v-for="tech in work.technologies" :key="tech">{{
-                tech
-              }}</v-chip></v-card-text
+              ><v-chip
+                v-for="tech in work.technologies"
+                :key="tech"
+                input-value="true"
+                >{{ tech }}</v-chip
+              ></v-card-text
             >
           </v-card>
         </v-card>

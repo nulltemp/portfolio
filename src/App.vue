@@ -1,18 +1,16 @@
 <template>
   <v-app>
-    <v-toolbar app class="toolbar">
-      <v-toolbar-title class="headline text-uppercase toolbar-title">
-        <span>Portfolio</span>
+    <v-app-bar app>
+      <v-toolbar-title class="text-uppercase">
+        Portfolio
       </v-toolbar-title>
       <v-spacer />
-      <v-toolbar-items>
-        <v-btn flat href="#profile">profile</v-btn>
-        <v-btn flat href="#link">link</v-btn>
-        <v-btn flat href="#skill">skill</v-btn>
-        <v-btn flat href="#work">work</v-btn>
-        <v-btn flat href="#contact">contact</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
+      <v-btn text href="#profile">profile</v-btn>
+      <v-btn text href="#link">link</v-btn>
+      <v-btn text href="#skill">skill</v-btn>
+      <v-btn text href="#work">work</v-btn>
+      <v-btn text href="#contact">contact</v-btn>
+    </v-app-bar>
 
     <v-content>
       <profile id="profile" />
@@ -43,13 +41,4 @@ export default {
 };
 </script>
 
-<style scope>
-.toolbar {
-  display: flex;
-  justify-content: center;
-}
-
-.toolbar-title {
-  margin-right: 5em;
-}
-</style>
+<style scope></style>

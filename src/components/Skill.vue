@@ -2,20 +2,18 @@
   <base-layout>
     <v-card>
       <v-card-title>
-        <h1>Skill</h1>
+        <h2>Skill</h2>
       </v-card-title>
-      <v-card-text class="text-xs-left">
+      <v-card-text class="text-left">
         <v-card>
           <v-card-title><h4>使用技術</h4></v-card-title>
           <v-list>
-            <v-list-tile v-for="(skill, index) in skills" :key="index">
-              <v-list-tile-content>{{ skill.title }}</v-list-tile-content>
-              <div class="text-xs-right">
-                <v-list-tile-content>
-                  {{ skill.value }}
-                </v-list-tile-content>
-              </div>
-            </v-list-tile>
+            <v-list-item v-for="(skill, index) in skills" :key="index">
+              <v-list-item-content>
+                <v-list-item-title>{{ skill.title }}</v-list-item-title>
+              </v-list-item-content>
+              {{ skill.value }}
+            </v-list-item>
           </v-list>
           <v-card-text>
             <div>その他（バックエンド）</div>
@@ -26,6 +24,7 @@
                   <v-chip
                     :key="index"
                     v-for="(skill, index) in backend.skills"
+                    input-value="true"
                     >{{ skill }}</v-chip
                   >
                 </v-card-text>
@@ -35,26 +34,22 @@
           <v-card-text>
             <div>その他（フロントエンド）</div>
             <template v-for="(skill, index) in otherFrontendSkills">
-              <v-chip :key="index">{{ skill }}</v-chip>
+              <v-chip :key="index" input-value="true">{{ skill }}</v-chip>
             </template>
           </v-card-text>
         </v-card>
         <v-card>
           <v-card-title><h4>資格</h4></v-card-title>
           <v-list>
-            <v-list-tile
+            <v-list-item
               v-for="qualification in qualifications"
               :key="qualification.name"
             >
-              <v-list-tile-content>{{
-                qualification.name
-              }}</v-list-tile-content>
-              <div class="text-xs-right">
-                <v-list-tile-content>
-                  {{ qualification.date }}
-                </v-list-tile-content>
-              </div>
-            </v-list-tile>
+              <v-list-item-content>
+                <v-list-item-title>{{ qualification.name }}</v-list-item-title>
+              </v-list-item-content>
+              {{ qualification.date }}
+            </v-list-item>
           </v-list>
         </v-card>
       </v-card-text>

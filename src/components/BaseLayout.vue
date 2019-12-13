@@ -1,11 +1,11 @@
 <template>
   <div class="content">
     <v-container>
-      <v-layout text-xs-center justify-center wrap>
-        <v-flex xs8>
+      <v-row justify="center" class="text-center flex-wrap">
+        <v-col md="12" lg="8">
           <slot />
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

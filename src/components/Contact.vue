@@ -2,7 +2,7 @@
   <base-layout>
     <iframe
       :src="src"
-      width="640"
+      width="100%"
       height="620"
       frameborder="0"
       marginheight="0"

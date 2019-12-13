@@ -2,7 +2,7 @@
   <base-layout>
     <v-card>
       <v-card-title>
-        <h1>Link</h1>
+        <h2>Link</h2>
       </v-card-title>
       <v-card-text class="link-body">
         <span v-for="(link, index) in links" :key="index">
@@ -65,8 +65,8 @@ export default {
 
 <style>
 .link-image {
-  width: 4em;
-  height: 4em;
+  width: 3em;
+  height: 3em;
 }
 
 .link-body {
