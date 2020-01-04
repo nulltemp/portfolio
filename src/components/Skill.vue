@@ -123,7 +123,9 @@ export default {
         "Vuex",
         "Vuetify.js",
         "Node.js",
-        "Nuxt.js"
+        "Nuxt.js",
+        "Google Maps API",
+        "Thymeleaf"
       ],
       qualifications: [
         {

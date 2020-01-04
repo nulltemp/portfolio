@@ -63,7 +63,9 @@ export default {
             "Spock",
             "SQL Server",
             "Flyway",
-            "jQuery"
+            "jQuery",
+            "Google Maps API",
+            "Thymeleaf"
           ]
         },
         {

@@ -19,6 +19,11 @@
       <work id="work" />
       <contact id="contact" />
     </v-content>
+
+    <v-footer dark>
+      <v-spacer />
+      <privacy-policy />
+    </v-footer>
   </v-app>
 </template>
 
@@ -28,6 +33,7 @@ import Skill from "./components/Skill";
 import Work from "./components/Work";
 import Link from "./components/Link";
 import Contact from "./components/Contact";
+import PrivacyPolicy from "./components/modal/PrivacyPolicy";
 
 export default {
   name: "App",
@@ -36,7 +42,8 @@ export default {
     Skill,
     Work,
     Link,
-    Contact
+    Contact,
+    PrivacyPolicy
   }
 };
 </script>
