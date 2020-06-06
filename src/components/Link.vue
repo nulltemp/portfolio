@@ -56,7 +56,8 @@ export default {
           value: "https://nulltemp.hatenablog.com/",
           image: HatenaImage
         },
-        { title: "LAPRAS", value: "https://lapras.com/public/KQD5ZUC" }
+        { title: "LAPRAS", value: "https://lapras.com/public/KQD5ZUC" },
+        { title: "teratail", value: "https://teratail.com/users/nulltemp" }
       ]
     };
   }
