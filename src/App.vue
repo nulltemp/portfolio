@@ -12,13 +12,13 @@
       <v-btn text href="#contact">contact</v-btn>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <profile id="profile" />
       <Link id="link" />
       <skill id="skill" />
       <work id="work" />
       <contact id="contact" />
-    </v-content>
+    </v-main>
 
     <v-footer dark>
       <v-spacer />
