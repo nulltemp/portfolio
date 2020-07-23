@@ -39,7 +39,7 @@
           </v-card-text>
         </v-card>
         <v-card>
-          <v-card-title><h4>資格</h4></v-card-title>
+          <v-card-title><h4>IT資格</h4></v-card-title>
           <v-list>
             <v-list-item
               v-for="qualification in qualifications"
@@ -51,6 +51,14 @@
               {{ qualification.date }}
             </v-list-item>
           </v-list>
+          <v-card-text>
+            <div>その他資格</div>
+            <template v-for="(qualification, index) in otherQualifications">
+              <v-chip :key="index" input-value="true"
+                >{{ qualification.name }} {{ qualification.date }}</v-chip
+              >
+            </template>
+          </v-card-text>
         </v-card>
       </v-card-text>
     </v-card>
@@ -136,6 +144,16 @@ export default {
         { name: "LPIC-1", date: "2015年11月" },
         { name: "JSTQB​ Foundation​ Level", date: "2014年10月" },
         { name: "基本情報技術者", date: "2008年05月" }
+      ],
+      otherQualifications: [
+        { name: "危険物取扱者乙種1類", date: "2007/04" },
+        { name: "危険物取扱者乙種2類", date: "2006/08" },
+        { name: "危険物取扱者乙種3類", date: "2006/08" },
+        { name: "危険物取扱者乙種4類", date: "2005/02" },
+        { name: "危険物取扱者乙種5類", date: "2006/02" },
+        { name: "危険物取扱者乙種6類", date: "2005/08" },
+        { name: "第2種電気工事士", date: "2005/10" },
+        { name: "ボイラー技士2級", date: "2006/09" }
       ]
     };
   }
