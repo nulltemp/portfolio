@@ -65,7 +65,8 @@ export default {
             "Flyway",
             "jQuery",
             "Google Maps API",
-            "Thymeleaf"
+            "Thymeleaf",
+            "AzureStorage"
           ]
         },
         {

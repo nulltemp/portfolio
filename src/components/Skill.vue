@@ -120,7 +120,8 @@ export default {
             "Tomcat",
             "AWS Lambda",
             "WebSocket",
-            "Flyway"
+            "Flyway",
+            "AzureStorage"
           ]
         }
       ],
