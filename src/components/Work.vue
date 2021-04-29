@@ -66,7 +66,10 @@ export default {
             "jQuery",
             "Google Maps API",
             "Thymeleaf",
-            "AzureStorage"
+            "AzureStorage",
+            "TypeScript",
+            "Nuxt.js",
+            "Next.js"
           ]
         },
         {

@@ -134,7 +134,9 @@ export default {
         "Node.js",
         "Nuxt.js",
         "Google Maps API",
-        "Thymeleaf"
+        "Thymeleaf",
+        "Next.js",
+        "TypeScript"
       ],
       qualifications: [
         { name: "LPIC-2", date: "2020年10月" },
@@ -142,7 +144,7 @@ export default {
           name: "AWS 認定ソリューションアーキテクト – アソシエイト",
           date: "2019年05月"
         },
-        { name: "OSS-DB​ ​Silver", date: "2016年03月" },
+        { name: "OSS-DB​ ​Silver (INACTIVE)", date: "2016年03月" },
         { name: "JSTQB​ Foundation​ Level", date: "2014年10月" },
         { name: "基本情報技術者", date: "2008年05月" }
       ],
