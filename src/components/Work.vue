@@ -52,7 +52,10 @@ export default {
       works: [
         {
           title: "施工現場管理システムの開発",
-          contents: ["管理画面の改修及び機能追加"],
+          contents: [
+            "管理画面の改修及び機能追加",
+            "管理画面リプレースのための技術調査"
+          ],
           period: "2019年10月～現在",
           technologies: [
             "Java",
@@ -69,6 +72,7 @@ export default {
             "AzureStorage",
             "TypeScript",
             "Nuxt.js",
+            "React",
             "Next.js"
           ]
         },

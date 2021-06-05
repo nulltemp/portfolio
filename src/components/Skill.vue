@@ -135,6 +135,7 @@ export default {
         "Nuxt.js",
         "Google Maps API",
         "Thymeleaf",
+        "React",
         "Next.js",
         "TypeScript"
       ],
