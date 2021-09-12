@@ -26,9 +26,7 @@
         <v-divider />
         <v-card-actions>
           <v-spacer />
-          <v-btn @click="dialog = false">
-            閉じる
-          </v-btn>
+          <v-btn @click="dialog = false">閉じる</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

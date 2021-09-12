@@ -76,7 +76,7 @@ export default {
     return {
       skills: [
         { title: "Java", value: "5年程度" },
-        { title: "JavaScript", value: "1年程度" },
+        { title: "JavaScript", value: "2年程度" },
         { title: "PHP", value: "1年程度" }
       ],
       otherBackendSkills: [

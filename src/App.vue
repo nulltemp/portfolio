@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title class="text-uppercase">
-        Portfolio
-      </v-toolbar-title>
+      <v-toolbar-title class="text-uppercase">Portfolio</v-toolbar-title>
       <v-spacer />
       <v-btn text href="#profile">profile</v-btn>
       <v-btn text href="#link">link</v-btn>

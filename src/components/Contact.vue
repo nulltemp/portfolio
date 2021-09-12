@@ -21,8 +21,7 @@ export default {
   },
   data() {
     return {
-      src:
-        "https://docs.google.com/forms/d/e/1FAIpQLSdDA-fXdX0pxWWJZY6KDD15joN2WCk6xoF1G3VnKciYL3uVKA/viewform?embedded=true"
+      src: "https://docs.google.com/forms/d/e/1FAIpQLSdDA-fXdX0pxWWJZY6KDD15joN2WCk6xoF1G3VnKciYL3uVKA/viewform?embedded=true"
     };
   }
 };
