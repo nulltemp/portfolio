@@ -51,12 +51,34 @@ export default {
     return {
       works: [
         {
+          title: "会員サイトの開発・運用",
+          contents: [
+            "会員サイトの機能追加",
+            "会員サイトの新規基盤へのリニューアル",
+            "会員サイトの運用作業"
+          ],
+          period: "2021年10月～",
+          technologies: [
+            "Java",
+            "JavaScript",
+            "Spring Framework",
+            "jQuery",
+            "JSP",
+            "Hibernate",
+            "Kotlin",
+            "PostgreSQL",
+            "Oracle Database",
+            "Velocity",
+            "ShellScript"
+          ]
+        },
+        {
           title: "施工現場管理システムの開発",
           contents: [
             "管理画面の改修及び機能追加",
             "管理画面リプレースのための技術調査"
           ],
-          period: "2019年10月～現在",
+          period: "2019年10月～2021年09月",
           technologies: [
             "Java",
             "JavaScript",

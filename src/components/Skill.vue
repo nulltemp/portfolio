@@ -104,7 +104,7 @@ export default {
         },
         {
           title: "ORM",
-          skills: ["Sequelize", "MyBatis", "Doma"]
+          skills: ["Sequelize", "MyBatis", "Doma", "Hibernate"]
         },
         {
           title: "Others",
@@ -121,7 +121,8 @@ export default {
             "AWS Lambda",
             "WebSocket",
             "Flyway",
-            "AzureStorage"
+            "AzureStorage",
+            "Kotlin"
           ]
         }
       ],
@@ -137,7 +138,9 @@ export default {
         "Thymeleaf",
         "React",
         "Next.js",
-        "TypeScript"
+        "TypeScript",
+        "JSP",
+        "Velocity"
       ],
       qualifications: [
         { name: "LPIC-2", date: "2020年10月" },
