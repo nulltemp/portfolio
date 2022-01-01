@@ -69,7 +69,9 @@ export default {
             "PostgreSQL",
             "Oracle Database",
             "Velocity",
-            "ShellScript"
+            "ShellScript",
+            "Python",
+            "Pipenv"
           ]
         },
         {

@@ -122,7 +122,9 @@ export default {
             "WebSocket",
             "Flyway",
             "AzureStorage",
-            "Kotlin"
+            "Kotlin",
+            "Python",
+            "Pipenv"
           ]
         }
       ],
