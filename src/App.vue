@@ -11,11 +11,11 @@
     </v-app-bar>
 
     <v-main>
-      <profile id="profile" />
-      <Link id="link" />
-      <skill id="skill" />
-      <work id="work" />
-      <contact id="contact" />
+      <profile-component id="profile" />
+      <link-component id="link" />
+      <skill-component id="skill" />
+      <work-component id="work" />
+      <contact-component id="contact" />
     </v-main>
 
     <v-footer dark>
@@ -26,21 +26,21 @@
 </template>
 
 <script>
-import Profile from "./components/Profile";
-import Skill from "./components/Skill";
-import Work from "./components/Work";
-import Link from "./components/Link";
-import Contact from "./components/Contact";
+import ProfileComponent from "./components/ProfileComponent";
+import SkillComponent from "./components/SkillComponent";
+import WorkComponent from "./components/WorkComponent";
+import LinkComponent from "./components/LinkComponent";
+import ContactComponent from "./components/ContactComponent";
 import PrivacyPolicy from "./components/modal/PrivacyPolicy";
 
 export default {
   name: "App",
   components: {
-    Profile,
-    Skill,
-    Work,
-    Link,
-    Contact,
+    ProfileComponent,
+    SkillComponent,
+    WorkComponent,
+    LinkComponent,
+    ContactComponent,
     PrivacyPolicy
   }
 };
