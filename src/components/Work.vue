@@ -51,7 +51,7 @@ export default {
     return {
       works: [
         {
-          title: "会員サイトの開発・運用",
+          title: "特定業種向け会員サイトの開発・運用",
           contents: [
             "会員サイトの機能追加",
             "会員サイトの新規基盤へのリニューアル",
@@ -71,7 +71,8 @@ export default {
             "Velocity",
             "ShellScript",
             "Python",
-            "Pipenv"
+            "Pipenv",
+            "Linux"
           ]
         },
         {
