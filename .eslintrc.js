@@ -10,7 +10,7 @@ module.exports = {
     "vuetify/no-deprecated-classes": "error"
   },
   parserOptions: {
-    parser: '@babel/eslint-parser'
+    parser: "@babel/eslint-parser"
   },
   plugins: ["vuetify"]
 };
