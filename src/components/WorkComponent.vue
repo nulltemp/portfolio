@@ -57,7 +57,7 @@ export default {
             "会員サイトの新規基盤へのリニューアル",
             "会員サイトの運用作業"
           ],
-          period: "2021年10月～",
+          period: "2021年10月～2022年03月",
           technologies: [
             "Java",
             "JavaScript",

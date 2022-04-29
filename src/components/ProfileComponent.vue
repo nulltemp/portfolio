@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       works: [
-        { title: "バックエンド", value: "6年程度" },
+        { title: "バックエンド", value: "5年以上" },
         { title: "フロントエンド", value: "2年程度" },
         { title: "その他インフラ等", value: "必要に応じて" }
       ]
