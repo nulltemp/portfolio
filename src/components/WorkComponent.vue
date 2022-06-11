@@ -51,6 +51,12 @@ export default {
     return {
       works: [
         {
+          title: "デリバリーサービスの新規開発",
+          contents: ["マイクロサービスのAPI実装", "バッチ処理の改修"],
+          period: "2022年05月～",
+          technologies: ["Java", "Spring Framework", "MySQL", "JPA", "JUnit"]
+        },
+        {
           title: "特定業種向け会員サイトの開発・運用",
           contents: [
             "会員サイトの機能追加",

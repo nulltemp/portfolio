@@ -104,7 +104,7 @@ export default {
         },
         {
           title: "ORM",
-          skills: ["Sequelize", "MyBatis", "Doma", "Hibernate"]
+          skills: ["Sequelize", "MyBatis", "Doma", "Hibernate", "JPA"]
         },
         {
           title: "Others",
