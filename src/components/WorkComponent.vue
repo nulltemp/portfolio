@@ -54,7 +54,15 @@ export default {
           title: "デリバリーサービスの新規開発",
           contents: ["マイクロサービスのAPI実装", "バッチ処理の改修"],
           period: "2022年05月～",
-          technologies: ["Java", "Spring Framework", "MySQL", "JPA", "JUnit"]
+          technologies: [
+            "Java",
+            "Spring Framework",
+            "MySQL",
+            "JPA",
+            "JUnit",
+            "Apache Pulsar",
+            "H2 Database"
+          ]
         },
         {
           title: "特定業種向け会員サイトの開発・運用",
@@ -156,7 +164,7 @@ export default {
             "FFmpeg",
             "MySQL",
             "Pacemaker",
-            "Apache",
+            "Apache HTTP Server",
             "Wowza Streaming Engine",
             "HTTP Live Streaming",
             "Heartbeat"

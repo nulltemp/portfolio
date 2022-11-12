@@ -87,7 +87,8 @@ export default {
             "MySQL",
             "DynamoDB",
             "SQL Server",
-            "Oracle Database"
+            "Oracle Database",
+            "H2 Database"
           ]
         },
         {
@@ -113,7 +114,7 @@ export default {
             "PDF",
             "Pacemaker",
             "FFmpeg",
-            "Apache",
+            "Apache HTTP Server",
             "Wowza Streaming Engine",
             "HTTP Live Streaming",
             "Heartbeat",
@@ -124,7 +125,8 @@ export default {
             "AzureStorage",
             "Kotlin",
             "Python",
-            "Pipenv"
+            "Pipenv",
+            "Apache Pulsar"
           ]
         }
       ],
