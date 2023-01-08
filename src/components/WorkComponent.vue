@@ -51,9 +51,15 @@ export default {
     return {
       works: [
         {
+          title: "デリバリーサービスのリプレース及び機能追加",
+          contents: ["既存機能の一部をマイクロサービス化"],
+          period: "2023年01月～",
+          technologies: ["Kotlin"]
+        },
+        {
           title: "デリバリーサービスの新規開発",
-          contents: ["マイクロサービスのAPI実装", "バッチ処理の改修"],
-          period: "2022年05月～",
+          contents: ["マイクロサービスのAPI実装", "バッチ処理の追加"],
+          period: "2022年05月～2022年12月",
           technologies: [
             "Java",
             "Spring Framework",
@@ -61,7 +67,8 @@ export default {
             "JPA",
             "JUnit",
             "Apache Pulsar",
-            "H2 Database"
+            "H2 Database",
+            "Screwdriver"
           ]
         },
         {
