@@ -54,7 +54,7 @@ export default {
           title: "デリバリーサービスのリプレース及び機能追加",
           contents: ["既存機能の一部をマイクロサービス化"],
           period: "2023年01月～",
-          technologies: ["Kotlin"]
+          technologies: ["Kotlin", "Spring Framework", "Oracle Database", "JUnit"]
         },
         {
           title: "デリバリーサービスの新規開発",
