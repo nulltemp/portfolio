@@ -93,11 +93,11 @@ export default {
         },
         {
           title: "Framework",
-          skills: ["Spring Framework", "Jersey", "Serverless Framework"]
+          skills: ["Spring Framework", "Jersey", "Serverless Framework", "Express.js"]
         },
         {
           title: "Test",
-          skills: ["JUnit", "Spock"]
+          skills: ["JUnit", "Spock", "Jest"]
         },
         {
           title: "OS",
@@ -127,7 +127,9 @@ export default {
             "Python",
             "Pipenv",
             "Apache Pulsar",
-            "Screwdriver"
+            "Screwdriver",
+            "Node.js",
+            "express-validator"
           ]
         }
       ],

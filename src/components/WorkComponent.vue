@@ -51,9 +51,15 @@ export default {
     return {
       works: [
         {
+          title: "車両検査管理システムの開発",
+          contents: ["管理システムのAPI実装"],
+          period: "2023年08月～",
+          technologies: ["JavaScript", "Node.js", "Express.js", "MySQL", "Sequelize", "Jest", "express-validator"]
+        },
+        {
           title: "デリバリーサービスのリプレース及び機能追加",
           contents: ["既存機能の一部をマイクロサービス化"],
-          period: "2023年01月～",
+          period: "2023年01月～2023年04月",
           technologies: ["Kotlin", "Spring Framework", "Oracle Database", "JUnit"]
         },
         {
