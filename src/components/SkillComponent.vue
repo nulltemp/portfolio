@@ -77,7 +77,8 @@ export default {
       skills: [
         { title: "Java", value: "5年以上" },
         { title: "JavaScript", value: "2年程度" },
-        { title: "PHP", value: "1年程度" }
+        { title: "PHP", value: "1年程度" },
+        { title: "Kotlin", value: "若干程度" }
       ],
       otherBackendSkills: [
         {
@@ -93,7 +94,12 @@ export default {
         },
         {
           title: "Framework",
-          skills: ["Spring Framework", "Jersey", "Serverless Framework", "Express.js"]
+          skills: [
+            "Spring Framework",
+            "Jersey",
+            "Serverless Framework",
+            "Express.js"
+          ]
         },
         {
           title: "Test",
@@ -105,7 +111,7 @@ export default {
         },
         {
           title: "ORM",
-          skills: ["Sequelize", "MyBatis", "Doma", "Hibernate", "JPA"]
+          skills: ["Sequelize", "MyBatis", "Doma", "Hibernate", "JPA", "Prisma"]
         },
         {
           title: "Others",
@@ -123,13 +129,13 @@ export default {
             "WebSocket",
             "Flyway",
             "AzureStorage",
-            "Kotlin",
             "Python",
             "Pipenv",
             "Apache Pulsar",
             "Screwdriver",
             "Node.js",
-            "express-validator"
+            "express-validator",
+            "TypeScript"
           ]
         }
       ],

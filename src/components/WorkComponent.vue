@@ -51,16 +51,43 @@ export default {
     return {
       works: [
         {
+          title: "補助金申請システムの開発等業務",
+          contents: ["システムのAPI修正", "基本設計書、詳細設計書の作成"],
+          period: "2024年06月～2024年07月",
+          technologies: [
+            "JavaScript",
+            "TypeScript",
+            "Node.js",
+            "Express.js",
+            "PostgreSQL",
+            "Prisma",
+            "Swagger"
+          ]
+        },
+        {
           title: "車両検査管理システムの開発",
           contents: ["管理システムのAPI実装"],
-          period: "2023年08月～",
-          technologies: ["JavaScript", "Node.js", "Express.js", "MySQL", "Sequelize", "Jest", "express-validator"]
+          period: "2023年08月～2024年04月",
+          technologies: [
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "MySQL",
+            "Sequelize",
+            "Jest",
+            "express-validator"
+          ]
         },
         {
           title: "デリバリーサービスのリプレース及び機能追加",
           contents: ["既存機能の一部をマイクロサービス化"],
           period: "2023年01月～2023年04月",
-          technologies: ["Kotlin", "Spring Framework", "Oracle Database", "JUnit"]
+          technologies: [
+            "Kotlin",
+            "Spring Framework",
+            "Oracle Database",
+            "JUnit"
+          ]
         },
         {
           title: "デリバリーサービスの新規開発",
