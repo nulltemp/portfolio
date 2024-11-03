@@ -51,6 +51,21 @@ export default {
     return {
       works: [
         {
+          title: "顧客向け業務システム開発支援",
+          contents: ["API実装・テスト", "画面実装", "ドキュメント作成"],
+          period: "2024年09月～現在",
+          technologies: [
+            "JavaScript",
+            "TypeScript",
+            "Java",
+            "Vue.js",
+            "Spring Framework",
+            "PostgreSQL",
+            "MyBatis",
+            "JUnit"
+          ]
+        },
+        {
           title: "補助金申請システムの開発等業務",
           contents: ["システムのAPI修正", "基本設計書、詳細設計書の作成"],
           period: "2024年06月～2024年07月",
