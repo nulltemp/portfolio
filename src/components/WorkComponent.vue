@@ -53,7 +53,7 @@ export default {
         {
           title: "顧客向け業務システム開発支援",
           contents: ["API実装・テスト", "画面実装", "ドキュメント作成"],
-          period: "2024年09月～現在",
+          period: "2024年09月～2024年11月",
           technologies: [
             "JavaScript",
             "TypeScript",
