@@ -51,6 +51,20 @@ export default {
     return {
       works: [
         {
+          title: "CMSサーバOSアップデート",
+          contents: ["EC2からEC2+Dockerへの構成変更"],
+          period: "2024年12月～",
+          technologies: [
+            "Docker",
+            "Python",
+            "Linux",
+            "MySQL",
+            "PostgreSQL",
+            "Perl",
+            "Apache HTTP Server"
+          ]
+        },
+        {
           title: "顧客向け業務システム開発支援",
           contents: ["API実装・テスト", "画面実装", "ドキュメント作成"],
           period: "2024年09月～2024年11月",
