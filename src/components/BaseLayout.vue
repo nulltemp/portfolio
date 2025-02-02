@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <v-container>
-      <v-row justify="center" class="text-center flex-wrap">
+      <v-row justify="center" class="flex-wrap">
         <v-col md="12" lg="8">
           <slot />
         </v-col>

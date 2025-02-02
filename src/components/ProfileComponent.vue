@@ -1,22 +1,23 @@
 <template>
   <base-layout>
     <v-card>
-      <v-card-title>
-        <h2>Profile</h2>
-      </v-card-title>
-      <v-card-text class="text-left">
-        <p>フリーのエンジニアのnulltempです</p>
-        <v-card>
-          <v-card-title><h4>主な職歴</h4></v-card-title>
-          <v-list>
-            <v-list-item v-for="(work, index) in works" :key="index">
-              <v-list-item-content>
-                <v-list-item-title>{{ work.title }}</v-list-item-title>
-              </v-list-item-content>
-              {{ work.value }}
-            </v-list-item>
-          </v-list>
-        </v-card>
+      <v-card-item>
+        <v-card-title>
+          <h2>Profile</h2>
+        </v-card-title></v-card-item
+      >
+      <v-card-text>
+        フリーのエンジニアのnulltempです
+        <v-list :items="works">
+          <v-list-subheader>主な職歴</v-list-subheader>
+          <v-list-item
+            v-for="(work, index) in works"
+            :key="index"
+            :title="work.title"
+          >
+            <template v-slot:append>{{ work.value }}</template>
+          </v-list-item>
+        </v-list>
       </v-card-text>
     </v-card>
   </base-layout>

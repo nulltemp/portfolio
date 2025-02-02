@@ -1,30 +1,35 @@
 <template>
   <base-layout>
     <v-card>
-      <v-card-title>
-        <h2>Works</h2>
-      </v-card-title>
+      <v-card-item>
+        <v-card-title>
+          <h2>Works</h2>
+        </v-card-title></v-card-item
+      >
       <v-card-text class="text-left" v-for="work in works" :key="work.title">
         <v-card>
           <v-card-title
             ><h4>{{ work.title }}</h4></v-card-title
           >
           <v-card>
-            <v-card-title>主な担当内容</v-card-title>
+            <v-card-item><v-card-title>主な担当内容</v-card-title></v-card-item>
             <v-card-text>
-              <ul>
-                <li v-for="(content, index) in work.contents" :key="index">
-                  {{ content }}
-                </li>
-              </ul>
+              <v-list :items="work.contents">
+                <v-list-item
+                  v-for="(content, index) in work.contents"
+                  :key="index"
+                  :title="content"
+                >
+                </v-list-item>
+              </v-list>
             </v-card-text>
           </v-card>
           <v-card>
-            <v-card-title>期間</v-card-title>
+            <v-card-item><v-card-title>期間</v-card-title></v-card-item>
             <v-card-text>{{ work.period }} </v-card-text>
           </v-card>
           <v-card>
-            <v-card-title>主な使用技術</v-card-title>
+            <v-card-item><v-card-title>主な使用技術</v-card-title></v-card-item>
             <v-card-text
               ><v-chip
                 v-for="tech in work.technologies"

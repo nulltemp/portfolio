@@ -1,12 +1,18 @@
 <template>
   <div>
     <v-dialog v-model="dialog" width="500">
-      <template v-slot:activator="{ on }">
-        <v-btn text v-on="on">Privacy Policy</v-btn>
+      <template v-slot:activator="{ props: activatorProps }">
+        <v-btn
+          text="Privacy Policy"
+          v-bind="activatorProps"
+          variant="text"
+        ></v-btn>
       </template>
 
       <v-card>
-        <v-card-title>Privacy Policy</v-card-title>
+        <v-card-item>
+          <v-card-title>Privacy Policy</v-card-title>
+        </v-card-item>
         <v-card-text>
           <h3>当サイトが利用しているアクセス解析ツールについて</h3>
           <br />

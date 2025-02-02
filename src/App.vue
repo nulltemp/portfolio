@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar color="grey-lighten-4">
       <v-toolbar-title class="text-uppercase">Portfolio</v-toolbar-title>
       <v-spacer />
       <v-btn text href="#profile">profile</v-btn>
@@ -18,7 +18,7 @@
       <contact-component id="contact" />
     </v-main>
 
-    <v-footer dark>
+    <v-footer color="grey-darken-4">
       <v-spacer />
       <privacy-policy />
     </v-footer>

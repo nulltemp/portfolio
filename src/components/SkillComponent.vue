@@ -1,24 +1,32 @@
 <template>
   <base-layout>
     <v-card>
-      <v-card-title>
-        <h2>Skill</h2>
-      </v-card-title>
+      <v-card-item>
+        <v-card-title>
+          <h2>Skill</h2>
+        </v-card-title>
+      </v-card-item>
       <v-card-text class="text-left">
         <v-card>
-          <v-card-title><h4>使用技術</h4></v-card-title>
+          <v-card-item
+            ><v-card-title><h4>使用技術</h4></v-card-title></v-card-item
+          >
           <v-list>
-            <v-list-item v-for="(skill, index) in skills" :key="index">
-              <v-list-item-content>
-                <v-list-item-title>{{ skill.title }}</v-list-item-title>
-              </v-list-item-content>
-              {{ skill.value }}
+            <v-list-item
+              v-for="(skill, index) in skills"
+              :key="index"
+              :title="skill.title"
+            >
+              <template v-slot:append>{{ skill.value }}</template>
             </v-list-item>
           </v-list>
           <v-card-text>
             <div>その他（バックエンド）</div>
-            <template v-for="(backend, index) in otherBackendSkills">
-              <v-card :key="index">
+            <template
+              v-for="(backend, index) in otherBackendSkills"
+              :key="index"
+            >
+              <v-card>
                 <v-card-text>
                   <div>{{ backend.title }}</div>
                   <v-chip
@@ -33,28 +41,34 @@
           </v-card-text>
           <v-card-text>
             <div>その他（フロントエンド）</div>
-            <template v-for="(skill, index) in otherFrontendSkills">
-              <v-chip :key="index" input-value="true">{{ skill }}</v-chip>
+            <template
+              v-for="(skill, index) in otherFrontendSkills"
+              :key="index"
+            >
+              <v-chip input-value="true">{{ skill }}</v-chip>
             </template>
           </v-card-text>
         </v-card>
         <v-card>
-          <v-card-title><h4>IT資格</h4></v-card-title>
+          <v-card-item
+            ><v-card-title><h4>IT資格</h4></v-card-title></v-card-item
+          >
           <v-list>
             <v-list-item
               v-for="qualification in qualifications"
               :key="qualification.name"
+              :title="qualification.name"
             >
-              <v-list-item-content>
-                <v-list-item-title>{{ qualification.name }}</v-list-item-title>
-              </v-list-item-content>
-              {{ qualification.date }}
+              <template v-slot:append>{{ qualification.date }}</template>
             </v-list-item>
           </v-list>
           <v-card-text>
             <div>その他資格</div>
-            <template v-for="(qualification, index) in otherQualifications">
-              <v-chip :key="index" input-value="true"
+            <template
+              v-for="(qualification, index) in otherQualifications"
+              :key="index"
+            >
+              <v-chip input-value="true"
                 >{{ qualification.name }} {{ qualification.date }}</v-chip
               >
             </template>
