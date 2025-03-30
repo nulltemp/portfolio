@@ -56,9 +56,15 @@ export default {
     return {
       works: [
         {
+          title: "データ連携バッチ新規作成",
+          contents: ["Pyhtonによるバッチ処理の新規作成"],
+          period: "2025年04月～",
+          technologies: ["Python", "Linux"]
+        },
+        {
           title: "CMSサーバOSアップデート",
           contents: ["EC2からEC2+Dockerへの構成変更"],
-          period: "2024年12月～",
+          period: "2024年12月～2025年03月",
           technologies: [
             "Docker",
             "Python",
