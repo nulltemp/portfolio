@@ -56,23 +56,30 @@ export default {
     return {
       works: [
         {
-          title: "データ連携バッチ新規作成",
-          contents: ["Pyhtonによるバッチ処理の新規作成"],
-          period: "2025年04月～",
-          technologies: ["Python", "Linux"]
+          title: "CRM更改版開発支援",
+          contents: ["既存APIをUI側に引き渡すためのゲートウェイサービスの開発"],
+          period: "2025年07月～",
+          technologies: ["Java", "Spring Framework", "Docker"]
         },
         {
-          title: "CMSサーバOSアップデート",
-          contents: ["EC2からEC2+Dockerへの構成変更"],
-          period: "2024年12月～2025年03月",
+          title: "製品CMS改修",
+          contents: [
+            "CMSサーバーのOSバージョンアップと、サーバー構成の変更対応",
+            "Pythonによるバッチ処理の新規作成",
+            "JavaやJavaScriptを用いた検索画面およびサーバーの修正"
+          ],
+          period: "2024年12月～2025年07月",
           technologies: [
             "Docker",
             "Python",
+            "java",
+            "JavaScript",
             "Linux",
             "MySQL",
             "PostgreSQL",
             "Perl",
-            "Apache HTTP Server"
+            "Apache HTTP Server",
+            "Spring Framework"
           ]
         },
         {
