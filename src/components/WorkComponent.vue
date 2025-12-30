@@ -57,9 +57,18 @@ export default {
       works: [
         {
           title: "CRM更改版開発支援",
-          contents: ["既存APIをUI側に引き渡すためのゲートウェイサービスの開発"],
+          contents: [
+            "既存APIをUI側に引き渡すためのゲートウェイサービスの開発",
+            "単体テストおよび結合テストの作成と実施"
+          ],
           period: "2025年07月～",
-          technologies: ["Java", "Spring Framework", "Docker"]
+          technologies: [
+            "Java",
+            "Spring Framework",
+            "Docker",
+            "Playwright",
+            "自社フレームワーク"
+          ]
         },
         {
           title: "製品CMS改修",
