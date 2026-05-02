@@ -112,7 +112,9 @@ export default {
             "Spring Framework",
             "Jersey",
             "Serverless Framework",
-            "Express.js"
+            "Express.js",
+            "Play Framework",
+            "Laravel"
           ]
         },
         {

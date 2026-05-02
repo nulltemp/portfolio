@@ -56,12 +56,29 @@ export default {
     return {
       works: [
         {
+          title: "SIer業務",
+          contents: [
+            "特定業種向け会員サイトの機能開発",
+            "金融系サービスの開発及び保守"
+          ],
+          period: "2026年04月～",
+          technologies: [
+            "Java",
+            "PHP",
+            "Spring Framework",
+            "Play Framework",
+            "Laravel",
+            "Docker",
+            "MySQL"
+          ]
+        },
+        {
           title: "CRM更改版開発支援",
           contents: [
             "既存APIをUI側に引き渡すためのゲートウェイサービスの開発",
             "単体テストおよび結合テストの作成と実施"
           ],
-          period: "2025年07月～",
+          period: "2025年07月～2026年02月",
           technologies: [
             "Java",
             "Spring Framework",
