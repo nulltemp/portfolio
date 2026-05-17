@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import BaseLayout from "@/components/BaseLayout";
+import BaseLayout from "@/components/BaseLayout.vue";
 import GitHubImage from "@/assets/GitHub-Mark-120px-plus.png";
 import QiitaImage from "@/assets/qiita-favicon.png";
 import TwitterImage from "@/assets/Twitter_Social_Icon_Circle_Color.svg";

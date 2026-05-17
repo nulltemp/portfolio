@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import ProfileComponent from "./components/ProfileComponent";
-import SkillComponent from "./components/SkillComponent";
-import WorkComponent from "./components/WorkComponent";
-import LinkComponent from "./components/LinkComponent";
-import ContactComponent from "./components/ContactComponent";
-import PrivacyPolicy from "./components/modal/PrivacyPolicy";
+import ProfileComponent from "./components/ProfileComponent.vue";
+import SkillComponent from "./components/SkillComponent.vue";
+import WorkComponent from "./components/WorkComponent.vue";
+import LinkComponent from "./components/LinkComponent.vue";
+import ContactComponent from "./components/ContactComponent.vue";
+import PrivacyPolicy from "./components/modal/PrivacyPolicy.vue";
 
 export default {
   name: "App",
