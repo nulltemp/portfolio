@@ -7,7 +7,7 @@
         </v-card-title></v-card-item
       >
       <v-card-text>
-        フリーのエンジニアのnulltempです
+        プログラマのnulltempです
         <v-list :items="works">
           <v-list-subheader>主な職歴</v-list-subheader>
           <v-list-item
