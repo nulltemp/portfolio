@@ -1,33 +1,33 @@
 # portfolio
 
-![github pages](https://github.com/nulltemp/portfolio/workflows/github%20pages/badge.svg)
-
-https://nulltemp.github.io/portfolio/
+https://nulltemp.com/
 
 ## Project setup
+
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
-yarn run serve
+npm run dev
+```
+
+### Preview the production build
+
+```
+npm run serve
 ```
 
 ### Compiles and minifies for production
-```
-yarn run build
-```
 
-### Run your tests
 ```
-yarn run test
+npm run build
 ```
 
 ### Lints and fixes files
-```
-yarn run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+npm run lint
+```
