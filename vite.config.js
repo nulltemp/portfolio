@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/portfolio/",
+  base: "/",
   plugins: [vue(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
