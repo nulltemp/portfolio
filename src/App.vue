@@ -7,6 +7,7 @@
       <v-btn text href="#link">link</v-btn>
       <v-btn text href="#skill">skill</v-btn>
       <v-btn text href="#work">work</v-btn>
+      <v-btn text href="#service">service</v-btn>
       <v-btn text href="#contact">contact</v-btn>
     </v-app-bar>
 
@@ -15,6 +16,7 @@
       <link-component id="link" />
       <skill-component id="skill" />
       <work-component id="work" />
+      <service-component id="service" />
       <contact-component id="contact" />
     </v-main>
 
@@ -29,6 +31,7 @@
 import ProfileComponent from "./components/ProfileComponent.vue";
 import SkillComponent from "./components/SkillComponent.vue";
 import WorkComponent from "./components/WorkComponent.vue";
+import ServiceComponent from "./components/ServiceComponent.vue";
 import LinkComponent from "./components/LinkComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
 import PrivacyPolicy from "./components/modal/PrivacyPolicy.vue";
@@ -39,6 +42,7 @@ export default {
     ProfileComponent,
     SkillComponent,
     WorkComponent,
+    ServiceComponent,
     LinkComponent,
     ContactComponent,
     PrivacyPolicy
