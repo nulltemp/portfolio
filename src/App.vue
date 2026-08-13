@@ -3,12 +3,12 @@
     <v-app-bar color="grey-lighten-4">
       <v-toolbar-title class="text-uppercase">Portfolio</v-toolbar-title>
       <v-spacer />
-      <v-btn text href="#profile">profile</v-btn>
-      <v-btn text href="#link">link</v-btn>
-      <v-btn text href="#skill">skill</v-btn>
-      <v-btn text href="#work">work</v-btn>
-      <v-btn text href="#service">service</v-btn>
-      <v-btn text href="#contact">contact</v-btn>
+      <v-btn text href="#profile" class="text-uppercase">profile</v-btn>
+      <v-btn text href="#link" class="text-uppercase">link</v-btn>
+      <v-btn text href="#skill" class="text-uppercase">skill</v-btn>
+      <v-btn text href="#work" class="text-uppercase">work</v-btn>
+      <v-btn text href="#service" class="text-uppercase">service</v-btn>
+      <v-btn text href="#contact" class="text-uppercase">contact</v-btn>
     </v-app-bar>
 
     <v-main>

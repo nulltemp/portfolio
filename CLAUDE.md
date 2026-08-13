@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A single-page personal portfolio site for nulltemp (hosted at https://nulltemp.com/), built with Vue 3 + Vuetify 3 and Vite. The entire site is one scrolling page assembled from section components.
+A single-page personal portfolio site for nulltemp (hosted at https://nulltemp.com/), built with Vue 3 + Vuetify 4 and Vite. The entire site is one scrolling page assembled from section components.
 
 ## Commands
 
@@ -35,6 +35,6 @@ There is no test suite and no `test` script, despite what README.md says.
 
 ## Code style
 
-- Enforced via ESLint (`plugin:vue/vue3-essential`, `eslint:recommended`, `plugin:prettier/recommended`) + Prettier.
+- Enforced via ESLint flat config ([eslint.config.js](eslint.config.js): `@eslint/js` recommended + `eslint-plugin-vue` `flat/essential` + `@vue/eslint-config-prettier`) + Prettier.
 - Prettier config ([.prettierrc](.prettierrc)): no trailing commas, `arrowParens: avoid`, `endOfLine: auto`.
 - Run `npm run lint` before committing to auto-fix style issues.
