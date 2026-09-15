@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A single-page personal portfolio site for nulltemp (hosted at https://nulltemp.com/), built with Vue 3 + Vuetify 4 and Vite. The entire site is one scrolling page assembled from section components.
+A single-page personal portfolio site for nulltemp (hosted at https://nulltemp.com/), built with Vue 3 + Vuetify 4 and Vite. The entire site is one scrolling page assembled from section components. `npm run build` statically prerenders that page to HTML via `vite-ssg` (SSG, not a live SSR server) for deployment as static assets on Cloudflare Pages.
 
 ## Commands
 
@@ -13,7 +13,7 @@ Package manager is **npm** (yarn was removed in commit `3c1cd2c`; ignore any yar
 ```
 npm install       # install dependencies
 npm run dev       # start Vite dev server with HMR
-npm run build     # production build to dist/
+npm run build     # vite-ssg build: builds + prerenders dist/index.html to static HTML
 npm run serve     # preview the production build
 npm run lint      # eslint --fix over src (.js, .vue)
 ```
@@ -22,7 +22,9 @@ There is no test suite and no `test` script, despite what README.md says.
 
 ## Architecture
 
-- **Entry point**: [src/main.js](src/main.js) creates the Vue app, installs the Vuetify plugin ([src/plugins/vuetify.js](src/plugins/vuetify.js)), and mounts to `#app`.
+- **Entry point**: [src/main.js](src/main.js) uses `vite-ssg/single-page`'s `ViteSSG(App, setup)` (no `vue-router`, since there's only one page) to create the app, install the Vuetify plugin ([src/plugins/vuetify.js](src/plugins/vuetify.js)), and mount to `#app`. This same entry runs both in the browser (dev/HMR, and hydration of the prerendered HTML) and in Node at build time (`vite-ssg build` renders it to static HTML with `@vue/server-renderer`, then the client bundle hydrates it).
+- Vuetify is created with `ssr: true` ([src/plugins/vuetify.js](src/plugins/vuetify.js)) so its components render safely in vite-ssg's Node build pass; `vite.config.js` sets `ssr: { noExternal: ["vuetify"] }` so Vuetify's per-component `.css` imports get bundled instead of left as raw `import`s Node can't load.
+- Deploy target is **Cloudflare Pages**: build command `npm run build`, output directory `dist/`. It's a fully static deploy (no Cloudflare Worker/Pages Function) — `dist/index.html` already contains the fully rendered page, and Vue hydrates it client-side.
 - **[src/App.vue](src/App.vue)** is the entire page shell: an app bar with anchor-link nav (`#profile`, `#link`, `#skill`, `#work`, `#contact`) and a `v-main` that stacks one section component per nav target, in order.
 - **Section components** (`src/components/ProfileComponent.vue`, `LinkComponent.vue`, `SkillComponent.vue`, `WorkComponent.vue`, `ContactComponent.vue`) each wrap their content in **[src/components/BaseLayout.vue](src/components/BaseLayout.vue)**, a shared container that also handles anchor-scroll offset (via the `.content::before` spacer, so fixed app-bar doesn't cover the anchor target).
 - Section content is **hardcoded data** in each component's `data()` — skills, work history, and links are plain arrays/objects in the `.vue` files themselves, not fetched from an API or CMS. To update resume/work history content, edit the `works`/`skills`/`qualifications` arrays directly in [SkillComponent.vue](src/components/SkillComponent.vue) and [WorkComponent.vue](src/components/WorkComponent.vue).
