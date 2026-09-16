@@ -14,7 +14,7 @@
           <v-card>
             <v-card-item><v-card-title>主な担当内容</v-card-title></v-card-item>
             <v-card-text>
-              <v-list :items="work.contents">
+              <v-list :items="work.contents" class="wrap-list">
                 <v-list-item
                   v-for="(content, index) in work.contents"
                   :key="index"
@@ -304,4 +304,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.wrap-list :deep(.v-list-item-title) {
+  white-space: normal;
+}
+
+.wrap-list :deep(.v-list-item) {
+  min-height: unset;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+</style>

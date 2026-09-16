@@ -53,7 +53,7 @@
           <v-card-item
             ><v-card-title><h4>IT資格</h4></v-card-title></v-card-item
           >
-          <v-list>
+          <v-list class="wrap-list">
             <v-list-item
               v-for="qualification in qualifications"
               :key="qualification.name"
@@ -196,4 +196,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.wrap-list :deep(.v-list-item-title) {
+  white-space: normal;
+}
+
+.wrap-list :deep(.v-list-item) {
+  min-height: unset;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+</style>
