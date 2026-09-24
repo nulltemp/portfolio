@@ -46,6 +46,12 @@ export default {
           url: "https://life-game-vue.nulltemp.com/",
           description:
             "Conwayのライフゲーム（セルオートマトン）をVue 3 + Vuetifyで実装したシミュレーターです。グリッドサイズやシミュレーション速度を自由に調整できます。"
+        },
+        {
+          title: "デベロッパーツール",
+          url: "https://dev-tools.nulltemp.com/",
+          description:
+            "文字数カウンター、JSON整形、JWTデコーダーなど、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
         }
       ]
     };
