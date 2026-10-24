@@ -49,7 +49,7 @@
 
     <v-footer color="grey-darken-4">
       <v-spacer />
-      <privacy-policy />
+      <v-btn variant="text" href="/privacy/">Privacy Policy</v-btn>
     </v-footer>
   </v-app>
 </template>
@@ -61,7 +61,6 @@ import WorkComponent from "./components/WorkComponent.vue";
 import ServiceComponent from "./components/ServiceComponent.vue";
 import LinkComponent from "./components/LinkComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
-import PrivacyPolicy from "./components/modal/PrivacyPolicy.vue";
 
 export default {
   name: "App",
@@ -71,8 +70,7 @@ export default {
     WorkComponent,
     ServiceComponent,
     LinkComponent,
-    ContactComponent,
-    PrivacyPolicy
+    ContactComponent
   },
   data() {
     return {
