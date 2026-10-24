@@ -14,7 +14,7 @@
           <v-card>
             <v-card-item><v-card-title>主な担当内容</v-card-title></v-card-item>
             <v-card-text>
-              <v-list :items="work.contents" class="wrap-list">
+              <v-list class="wrap-list">
                 <v-list-item
                   v-for="(content, index) in work.contents"
                   :key="index"
@@ -31,12 +31,9 @@
           <v-card>
             <v-card-item><v-card-title>主な使用技術</v-card-title></v-card-item>
             <v-card-text
-              ><v-chip
-                v-for="tech in work.technologies"
-                :key="tech"
-                input-value="true"
-                >{{ tech }}</v-chip
-              ></v-card-text
+              ><v-chip v-for="tech in work.technologies" :key="tech">{{
+                tech
+              }}</v-chip></v-card-text
             >
           </v-card>
         </v-card>

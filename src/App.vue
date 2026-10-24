@@ -7,12 +7,18 @@
       </v-toolbar-title>
       <v-spacer />
       <nav class="d-none d-md-flex" aria-label="メインナビゲーション">
-        <v-btn text href="#profile" class="text-uppercase">profile</v-btn>
-        <v-btn text href="#link" class="text-uppercase">link</v-btn>
-        <v-btn text href="#skill" class="text-uppercase">skill</v-btn>
-        <v-btn text href="#work" class="text-uppercase">work</v-btn>
-        <v-btn text href="#service" class="text-uppercase">service</v-btn>
-        <v-btn text href="#contact" class="text-uppercase">contact</v-btn>
+        <v-btn variant="text" href="#profile" class="text-uppercase"
+          >profile</v-btn
+        >
+        <v-btn variant="text" href="#link" class="text-uppercase">link</v-btn>
+        <v-btn variant="text" href="#skill" class="text-uppercase">skill</v-btn>
+        <v-btn variant="text" href="#work" class="text-uppercase">work</v-btn>
+        <v-btn variant="text" href="#service" class="text-uppercase"
+          >service</v-btn
+        >
+        <v-btn variant="text" href="#contact" class="text-uppercase"
+          >contact</v-btn
+        >
       </nav>
     </v-app-bar>
 

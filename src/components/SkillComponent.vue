@@ -22,31 +22,20 @@
           </v-list>
           <v-card-text>
             <div>その他（バックエンド）</div>
-            <template
-              v-for="(backend, index) in otherBackendSkills"
-              :key="index"
-            >
-              <v-card>
-                <v-card-text>
-                  <div>{{ backend.title }}</div>
-                  <v-chip
-                    :key="index"
-                    v-for="(skill, index) in backend.skills"
-                    input-value="true"
-                    >{{ skill }}</v-chip
-                  >
-                </v-card-text>
-              </v-card>
-            </template>
+            <v-card v-for="backend in otherBackendSkills" :key="backend.title">
+              <v-card-text>
+                <div>{{ backend.title }}</div>
+                <v-chip v-for="skill in backend.skills" :key="skill">{{
+                  skill
+                }}</v-chip>
+              </v-card-text>
+            </v-card>
           </v-card-text>
           <v-card-text>
             <div>その他（フロントエンド）</div>
-            <template
-              v-for="(skill, index) in otherFrontendSkills"
-              :key="index"
-            >
-              <v-chip input-value="true">{{ skill }}</v-chip>
-            </template>
+            <v-chip v-for="skill in otherFrontendSkills" :key="skill">{{
+              skill
+            }}</v-chip>
           </v-card-text>
         </v-card>
         <v-card>
@@ -64,14 +53,11 @@
           </v-list>
           <v-card-text>
             <div>その他資格</div>
-            <template
-              v-for="(qualification, index) in otherQualifications"
-              :key="index"
+            <v-chip
+              v-for="qualification in otherQualifications"
+              :key="qualification.name"
+              >{{ qualification.name }} {{ qualification.date }}</v-chip
             >
-              <v-chip input-value="true"
-                >{{ qualification.name }} {{ qualification.date }}</v-chip
-              >
-            </template>
           </v-card-text>
         </v-card>
       </v-card-text>

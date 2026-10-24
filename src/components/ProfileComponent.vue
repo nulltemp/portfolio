@@ -8,7 +8,7 @@
       >
       <v-card-text>
         プログラマのnulltempです
-        <v-list :items="works">
+        <v-list>
           <v-list-subheader>主な職歴</v-list-subheader>
           <v-list-item
             v-for="(work, index) in works"

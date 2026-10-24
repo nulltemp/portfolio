@@ -14,13 +14,21 @@ export default [
     files: ["**/*.{js,vue}"],
     languageOptions: {
       globals: {
-        ...globals.node,
+        ...globals.browser,
         ...globals.es2022
       }
     },
     rules: {
       "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
       "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    }
+  },
+  {
+    files: ["*.config.js"],
+    languageOptions: {
+      globals: {
+        ...globals.node
+      }
     }
   }
 ];
