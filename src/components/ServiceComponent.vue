@@ -17,7 +17,9 @@
           >
           <v-card-text>{{ service.description }}</v-card-text>
           <v-card-actions>
-            <a :href="service.url" target="_blank">{{ service.url }}</a>
+            <a :href="service.url" target="_blank" rel="noopener">{{
+              service.url
+            }}</a>
           </v-card-actions>
         </v-card>
       </v-card-text>

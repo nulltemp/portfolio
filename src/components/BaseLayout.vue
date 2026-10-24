@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <section class="content">
     <v-container>
       <v-row justify="center" class="flex-wrap">
         <v-col md="12" lg="8">
@@ -7,7 +7,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>

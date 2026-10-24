@@ -2,19 +2,26 @@
   <v-app>
     <v-app-bar color="grey-lighten-4">
       <v-app-bar-nav-icon class="d-flex d-md-none" @click="drawer = !drawer" />
-      <v-toolbar-title class="text-uppercase">Portfolio</v-toolbar-title>
+      <v-toolbar-title>
+        <h1 class="site-title text-uppercase">nulltemp's Portfolio</h1>
+      </v-toolbar-title>
       <v-spacer />
-      <div class="d-none d-md-flex">
+      <nav class="d-none d-md-flex" aria-label="メインナビゲーション">
         <v-btn text href="#profile" class="text-uppercase">profile</v-btn>
         <v-btn text href="#link" class="text-uppercase">link</v-btn>
         <v-btn text href="#skill" class="text-uppercase">skill</v-btn>
         <v-btn text href="#work" class="text-uppercase">work</v-btn>
         <v-btn text href="#service" class="text-uppercase">service</v-btn>
         <v-btn text href="#contact" class="text-uppercase">contact</v-btn>
-      </div>
+      </nav>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" temporary class="d-md-none">
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      class="d-md-none"
+      aria-label="メインナビゲーション"
+    >
       <v-list nav>
         <v-list-item href="#profile" title="Profile" @click="drawer = false" />
         <v-list-item href="#link" title="Link" @click="drawer = false" />
@@ -69,4 +76,10 @@ export default {
 };
 </script>
 
-<style scope></style>
+<style scoped>
+.site-title {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+</style>

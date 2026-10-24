@@ -6,7 +6,7 @@
       </v-card-title>
       <v-card-text class="link-body">
         <span v-for="(link, index) in links" :key="index">
-          <a :href="link.value" target="_blank">
+          <a :href="link.value" target="_blank" rel="me noopener noreferrer">
             <img
               :src="link.image"
               class="link-image"

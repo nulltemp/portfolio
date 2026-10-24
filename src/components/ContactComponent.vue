@@ -1,14 +1,23 @@
 <template>
   <base-layout>
-    <iframe
-      :src="src"
-      width="100%"
-      height="620"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-      >読み込んでいます…</iframe
-    >
+    <v-card>
+      <v-card-item>
+        <v-card-title>
+          <h2>Contact</h2>
+        </v-card-title>
+      </v-card-item>
+      <iframe
+        :src="src"
+        title="お問い合わせフォーム"
+        loading="lazy"
+        width="100%"
+        height="620"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        >読み込んでいます…</iframe
+      >
+    </v-card>
   </base-layout>
 </template>
 
