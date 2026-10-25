@@ -6,6 +6,18 @@ export default [
     component: () => import("./pages/HomePage.vue")
   },
   {
+    path: "/services/coin-catching-game/",
+    component: () => import("./pages/services/CoinCatchingGamePage.vue")
+  },
+  {
+    path: "/services/life-game/",
+    component: () => import("./pages/services/LifeGamePage.vue")
+  },
+  {
+    path: "/services/dev-tools/",
+    component: () => import("./pages/services/DevToolsPage.vue")
+  },
+  {
     path: "/services/jinro/",
     component: () => import("./pages/services/JinroPage.vue")
   }
