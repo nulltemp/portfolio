@@ -17,6 +17,14 @@ export default defineConfig({
   },
   ssgOptions: {
     // /services/jinro/ を services/jinro/index.html として出力する
-    dirStyle: "nested"
+    dirStyle: "nested",
+    // 動的ルート（404 用の catch-all）は除き、代わりに /404 を描画する
+    includedRoutes: paths =>
+      paths
+        .filter(path => !path.includes(":") && !path.includes("*"))
+        .concat("/404"),
+    // Cloudflare Pages は dist/404.html があると、存在しない URL にステータス 404 で返す
+    htmlFileName: filename =>
+      filename === "404/index.html" ? "404.html" : undefined
   }
 });

@@ -20,5 +20,10 @@ export default [
   {
     path: "/services/jinro/",
     component: () => import("./pages/services/JinroPage.vue")
+  },
+  {
+    // ビルド時は /404 として描画し、vite.config.js で dist/404.html に出力する
+    path: "/:pathMatch(.*)*",
+    component: () => import("./pages/NotFoundPage.vue")
   }
 ];
