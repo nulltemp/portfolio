@@ -14,5 +14,9 @@ export default defineConfig({
   },
   ssr: {
     noExternal: ["vuetify"]
+  },
+  ssgOptions: {
+    // /services/jinro/ を services/jinro/index.html として出力する
+    dirStyle: "nested"
   }
 });

@@ -3,21 +3,23 @@
     <v-app-bar color="grey-lighten-4">
       <v-app-bar-nav-icon class="d-flex d-md-none" @click="drawer = !drawer" />
       <v-toolbar-title>
-        <h1 class="site-title text-uppercase">nulltemp's Portfolio</h1>
+        <!-- 詳細ページでは各ページの見出しが h1 になるので、サイト名はトップだけ h1 にする -->
+        <component :is="isHome ? 'h1' : 'div'" class="site-title">
+          <router-link to="/" class="text-uppercase"
+            >nulltemp's Portfolio</router-link
+          >
+        </component>
       </v-toolbar-title>
       <v-spacer />
       <nav class="d-none d-md-flex" aria-label="メインナビゲーション">
-        <v-btn variant="text" href="#profile" class="text-uppercase"
-          >profile</v-btn
-        >
-        <v-btn variant="text" href="#link" class="text-uppercase">link</v-btn>
-        <v-btn variant="text" href="#skill" class="text-uppercase">skill</v-btn>
-        <v-btn variant="text" href="#work" class="text-uppercase">work</v-btn>
-        <v-btn variant="text" href="#service" class="text-uppercase"
-          >service</v-btn
-        >
-        <v-btn variant="text" href="#contact" class="text-uppercase"
-          >contact</v-btn
+        <v-btn
+          v-for="item in navItems"
+          :key="item.hash"
+          variant="text"
+          :to="'/' + item.hash"
+          :active="false"
+          class="text-uppercase"
+          >{{ item.title }}</v-btn
         >
       </nav>
     </v-app-bar>
@@ -29,22 +31,19 @@
       aria-label="メインナビゲーション"
     >
       <v-list nav>
-        <v-list-item href="#profile" title="Profile" @click="drawer = false" />
-        <v-list-item href="#link" title="Link" @click="drawer = false" />
-        <v-list-item href="#skill" title="Skill" @click="drawer = false" />
-        <v-list-item href="#work" title="Work" @click="drawer = false" />
-        <v-list-item href="#service" title="Service" @click="drawer = false" />
-        <v-list-item href="#contact" title="Contact" @click="drawer = false" />
+        <v-list-item
+          v-for="item in navItems"
+          :key="item.hash"
+          :to="'/' + item.hash"
+          :active="false"
+          :title="item.title"
+          @click="drawer = false"
+        />
       </v-list>
     </v-navigation-drawer>
 
     <v-main>
-      <profile-component id="profile" />
-      <link-component id="link" />
-      <skill-component id="skill" />
-      <work-component id="work" />
-      <service-component id="service" />
-      <contact-component id="contact" />
+      <router-view />
     </v-main>
 
     <v-footer color="grey-darken-4">
@@ -55,27 +54,25 @@
 </template>
 
 <script>
-import ProfileComponent from "./components/ProfileComponent.vue";
-import SkillComponent from "./components/SkillComponent.vue";
-import WorkComponent from "./components/WorkComponent.vue";
-import ServiceComponent from "./components/ServiceComponent.vue";
-import LinkComponent from "./components/LinkComponent.vue";
-import ContactComponent from "./components/ContactComponent.vue";
-
 export default {
   name: "App",
-  components: {
-    ProfileComponent,
-    SkillComponent,
-    WorkComponent,
-    ServiceComponent,
-    LinkComponent,
-    ContactComponent
-  },
   data() {
     return {
-      drawer: false
+      drawer: false,
+      navItems: [
+        { hash: "#profile", title: "Profile" },
+        { hash: "#link", title: "Link" },
+        { hash: "#skill", title: "Skill" },
+        { hash: "#work", title: "Work" },
+        { hash: "#service", title: "Service" },
+        { hash: "#contact", title: "Contact" }
+      ]
     };
+  },
+  computed: {
+    isHome() {
+      return this.$route.path === "/";
+    }
   }
 };
 </script>
@@ -85,5 +82,10 @@ export default {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
+}
+
+.site-title a {
+  color: inherit;
+  text-decoration: none;
 }
 </style>

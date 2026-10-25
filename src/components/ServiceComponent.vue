@@ -16,10 +16,18 @@
             ><h4>{{ service.title }}</h4></v-card-title
           >
           <v-card-text>{{ service.description }}</v-card-text>
-          <v-card-actions>
+          <v-card-actions class="flex-wrap">
             <a :href="service.url" target="_blank" rel="noopener">{{
               service.url
             }}</a>
+            <v-spacer />
+            <v-btn
+              v-if="service.page"
+              :to="service.page"
+              variant="tonal"
+              append-icon="mdi-chevron-right"
+              >詳しく見る</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-card-text>
@@ -29,6 +37,7 @@
 
 <script>
 import BaseLayout from "@/components/BaseLayout.vue";
+import services from "@/data/services";
 
 export default {
   components: {
@@ -36,32 +45,7 @@ export default {
   },
   data() {
     return {
-      services: [
-        {
-          title: "コインキャッチゲーム",
-          url: "https://coin-catching-game.nulltemp.com/",
-          description:
-            "矢印キーでプレイヤーを操作し、上から降ってくるコインをキャッチしてスコアを競う、Phaser製のシンプルなアクションゲームです。"
-        },
-        {
-          title: "ライフゲーム",
-          url: "https://life-game-vue.nulltemp.com/",
-          description:
-            "Conwayのライフゲーム（セルオートマトン）をVue 3 + Vuetifyで実装したシミュレーターです。グリッドサイズやシミュレーション速度を自由に調整できます。"
-        },
-        {
-          title: "デベロッパーツール",
-          url: "https://dev-tools.nulltemp.com/",
-          description:
-            "文字数カウンター、JSON整形、JWTデコーダーなど、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
-        },
-        {
-          title: "人狼ゲーム",
-          url: "https://jinro.nulltemp.com/",
-          description:
-            "自由入力のチャットを使わず、ボタンで選ぶ「定型宣言」（CO・占い結果の報告など）だけで遊ぶ、ブラウザ向けのオンライン人狼ゲームです。"
-        }
-      ]
+      services
     };
   }
 };
