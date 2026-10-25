@@ -54,6 +54,12 @@ export default {
           url: "https://dev-tools.nulltemp.com/",
           description:
             "文字数カウンター、JSON整形、JWTデコーダーなど、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
+        },
+        {
+          title: "人狼ゲーム",
+          url: "https://jinro.nulltemp.com/",
+          description:
+            "自由入力のチャットを使わず、ボタンで選ぶ「定型宣言」（CO・占い結果の報告など）だけで遊ぶ、ブラウザ向けのオンライン人狼ゲームです。"
         }
       ]
     };
