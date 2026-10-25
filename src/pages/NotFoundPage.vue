@@ -3,7 +3,7 @@
     <v-card>
       <v-card-item>
         <v-card-title class="text-wrap">
-          <h1 class="not-found-title">ページが見つかりません</h1>
+          <h1 class="page-title">ページが見つかりません</h1>
         </v-card-title>
       </v-card-item>
       <v-card-text class="text-left">
@@ -37,10 +37,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.not-found-title {
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-</style>

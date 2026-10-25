@@ -48,6 +48,7 @@
 
     <v-footer color="grey-darken-4">
       <v-spacer />
+      <v-btn variant="text" to="/about/">このサイトについて</v-btn>
       <v-btn variant="text" href="/privacy/">Privacy Policy</v-btn>
     </v-footer>
   </v-app>
@@ -87,5 +88,42 @@ export default {
 .site-title a {
   color: inherit;
   text-decoration: none;
+}
+</style>
+
+<style>
+/* 詳細ページなど、文章が中心のページで共通に使うスタイル */
+.page-title {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose .v-table {
+  margin-bottom: 1rem;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
 }
 </style>

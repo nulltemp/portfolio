@@ -6,6 +6,10 @@ export default [
     component: () => import("./pages/HomePage.vue")
   },
   {
+    path: "/about/",
+    component: () => import("./pages/AboutPage.vue")
+  },
+  {
     path: "/services/coin-catching-game/",
     component: () => import("./pages/services/CoinCatchingGamePage.vue")
   },

@@ -3,11 +3,11 @@
     <v-card>
       <v-card-item>
         <v-card-title class="text-wrap">
-          <h1 class="service-title">{{ service.title }}</h1>
+          <h1 class="page-title">{{ service.title }}</h1>
         </v-card-title>
         <v-card-subtitle class="text-wrap">{{ service.url }}</v-card-subtitle>
       </v-card-item>
-      <v-card-text class="text-left service-body">
+      <v-card-text class="text-left prose">
         <p>{{ service.description }}</p>
         <v-btn
           :href="service.url"
@@ -67,39 +67,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.service-title {
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-.service-body {
-  font-size: 1rem;
-  line-height: 1.9;
-}
-
-.service-body :deep(h2) {
-  font-size: 1.25rem;
-  margin: 2rem 0 0.75rem;
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-.service-body :deep(h3) {
-  font-size: 1.05rem;
-  margin: 1.25rem 0 0.5rem;
-}
-
-.service-body :deep(p),
-.service-body :deep(ul),
-.service-body :deep(ol),
-.service-body :deep(.v-table) {
-  margin-bottom: 1rem;
-}
-
-.service-body :deep(ul),
-.service-body :deep(ol) {
-  padding-left: 1.5rem;
-}
-</style>
