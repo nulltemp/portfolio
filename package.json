@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@mdi/js": "^7.4.47",
     "@playwright/test": "^1.63.0",
     "@unhead/vue": "^2.1.17",
     "@vitejs/plugin-vue": "^6.0.7",

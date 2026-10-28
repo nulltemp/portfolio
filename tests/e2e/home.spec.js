@@ -98,3 +98,30 @@ test.describe("レイアウト", () => {
     expect(box.height).toBeLessThan(80);
   });
 });
+
+test.describe("アイコン", () => {
+  test("外部のアイコンフォントに頼らず、ハンバーガーメニューが SVG で表示される", async ({
+    page,
+    isMobile
+  }) => {
+    test.skip(!isMobile, "モバイル幅のみ");
+    const requested = [];
+    page.on("request", req => requested.push(req.url()));
+    await page.goto("/");
+    await expect(page.locator(".v-app-bar-nav-icon svg path")).toHaveAttribute(
+      "d",
+      /\S/
+    );
+    expect(
+      requested.filter(url => url.includes("materialdesignicons"))
+    ).toEqual([]);
+  });
+
+  test("プリレンダリングした HTML にアイコンの SVG が含まれている", async ({
+    request
+  }) => {
+    const html = await (await request.get("/services/jinro/")).text();
+    expect(html).toContain("<svg");
+    expect(html).not.toContain("materialdesignicons");
+  });
+});

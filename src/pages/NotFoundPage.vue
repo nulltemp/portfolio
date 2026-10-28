@@ -12,7 +12,7 @@
         </p>
       </v-card-text>
       <v-card-actions class="flex-wrap">
-        <v-btn to="/" variant="tonal" prepend-icon="mdi-home"
+        <v-btn to="/" variant="tonal" prepend-icon="$home"
           >トップページへ</v-btn
         >
         <v-btn to="/#service" variant="text">サービス一覧</v-btn>

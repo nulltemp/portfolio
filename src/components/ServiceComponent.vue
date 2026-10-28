@@ -25,7 +25,7 @@
               v-if="service.page"
               :to="service.page"
               variant="tonal"
-              append-icon="mdi-chevron-right"
+              append-icon="$next"
               >詳しく見る</v-btn
             >
           </v-card-actions>

@@ -48,9 +48,10 @@
 
 ## アクセシビリティ・堅牢性
 
-- [ ] **アイコンフォントが外部 CDN 頼み**
+- [x] **アイコンフォントが外部 CDN 頼み**
   - `@mdi/font` を jsdelivr から読み込んでいる（[index.html](../index.html)）。CDN が落ちる・遅いと、スマホのハンバーガーメニューが白丸だけになり、メニューの場所がわからなくなる（CDN を遮断して再現を確認）。
   - 案: `@mdi/font` を npm パッケージとして同梱する / 使うアイコンだけ `@mdi/js` の SVG で入れる
+  - 対応: 使うアイコンだけ `@mdi/js` の SVG で入れ、Vuetify の `mdi-svg` アイコンセットに切り替えた。index.html の CDN 読み込みは削除。
 - [ ] **Contact 欄が読み込み中・失敗時に空白になる**
   - Google フォームの iframe が表示されるまでの間や、読み込めなかったとき（広告ブロッカー等）は、高さ 620px の真っ白な領域になる。iframe 内の「読み込んでいます…」は現在のブラウザでは表示されない。
   - 場所: [src/components/ContactComponent.vue](../src/components/ContactComponent.vue)
