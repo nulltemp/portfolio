@@ -7,7 +7,9 @@
     "dev": "vite",
     "serve": "vite preview",
     "build": "vite-ssg build",
-    "lint": "eslint --fix src"
+    "lint": "eslint --fix src tests playwright.config.js",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "vue": "^3.0.0",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "@unhead/vue": "^2.1.17",
     "@vitejs/plugin-vue": "^6.0.7",
     "@vue/eslint-config-prettier": "^10.2.0",
