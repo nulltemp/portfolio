@@ -14,14 +14,14 @@
           target="_blank"
           rel="noopener"
           color="primary"
-          append-icon="mdi-open-in-new"
+          append-icon="$openInNew"
           class="my-2"
           >{{ actionLabel }}</v-btn
         >
         <slot />
       </v-card-text>
       <v-card-actions>
-        <v-btn to="/#service" variant="text" prepend-icon="mdi-chevron-left"
+        <v-btn to="/#service" variant="text" prepend-icon="$chevronLeft"
           >サービス一覧に戻る</v-btn
         >
       </v-card-actions>

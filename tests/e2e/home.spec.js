@@ -77,3 +77,51 @@ test.describe("ナビゲーション", () => {
     ).toBeVisible();
   });
 });
+
+test.describe("レイアウト", () => {
+  for (const width of [320, 360]) {
+    test(`幅 ${width}px でもサイト名が切れずに表示される`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 640 });
+      await page.goto("/");
+      const title = page.locator(".site-title");
+      const { scrollWidth, clientWidth } = await title.evaluate(el => ({
+        scrollWidth: el.scrollWidth,
+        clientWidth: el.clientWidth
+      }));
+      expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
+    });
+  }
+
+  test("中身の少ないページでもフッターが縦に伸びない", async ({ page }) => {
+    await page.goto("/this-page-does-not-exist/");
+    const box = await page.locator(".v-footer").boundingBox();
+    expect(box.height).toBeLessThan(80);
+  });
+});
+
+test.describe("アイコン", () => {
+  test("外部のアイコンフォントに頼らず、ハンバーガーメニューが SVG で表示される", async ({
+    page,
+    isMobile
+  }) => {
+    test.skip(!isMobile, "モバイル幅のみ");
+    const requested = [];
+    page.on("request", req => requested.push(req.url()));
+    await page.goto("/");
+    await expect(page.locator(".v-app-bar-nav-icon svg path")).toHaveAttribute(
+      "d",
+      /\S/
+    );
+    expect(
+      requested.filter(url => url.includes("materialdesignicons"))
+    ).toEqual([]);
+  });
+
+  test("プリレンダリングした HTML にアイコンの SVG が含まれている", async ({
+    request
+  }) => {
+    const html = await (await request.get("/services/jinro/")).text();
+    expect(html).toContain("<svg");
+    expect(html).not.toContain("materialdesignicons");
+  });
+});
