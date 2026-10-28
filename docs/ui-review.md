@@ -1,6 +1,6 @@
 # UI 確認で見つかった課題
 
-2026-10-28 に、ビルド済みのサイト（`npm run build` → `npm run serve`）を Playwright で開き、スクリーンショットを撮って目視で確認した結果です。
+2026-10-28 に、ビルド済みのサイト（`npm run build` → `npm run serve`）を Playwright で開き、スクリーンショットを撮って目視で確認した結果です。コードを読んで見つけた課題は [code-review.md](code-review.md) にまとめています。
 
 - 対象ページ: `/`、`/about/`、`/services/jinro/`、`/services/dev-tools/`、存在しない URL（404）
 - 画面幅: デスクトップ 1280px、Pixel 7（412px）、360px、320px
