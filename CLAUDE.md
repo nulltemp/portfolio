@@ -15,10 +15,12 @@ npm install       # install dependencies
 npm run dev       # start Vite dev server with HMR
 npm run build     # vite-ssg build: builds + prerenders every route to static HTML under dist/
 npm run serve     # preview the production build
-npm run lint      # eslint --fix over src (.js, .vue)
+npm run lint      # eslint --fix over src, tests and playwright.config.js
+npm test          # Playwright UI tests (builds, then serves dist/ via vite preview)
+npm run test:ui   # same, in Playwright's interactive UI mode
 ```
 
-There is no test suite and no `test` script, despite what README.md says.
+UI tests use Playwright ([playwright.config.js](playwright.config.js), specs in `tests/e2e/`). The `webServer` runs `npm run build && npm run serve` on port 4173, so tests hit the prerendered static output, not the dev server; tests run in a desktop and a mobile (Pixel 7) project. On a fresh machine run `npx playwright install chromium` once to download the browser. Specs import [src/data/services.js](src/data/services.js) so new service pages get covered automatically. README.md's test instructions are stale.
 
 ## Architecture
 
