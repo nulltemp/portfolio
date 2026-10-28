@@ -77,3 +77,24 @@ test.describe("ナビゲーション", () => {
     ).toBeVisible();
   });
 });
+
+test.describe("レイアウト", () => {
+  for (const width of [320, 360]) {
+    test(`幅 ${width}px でもサイト名が切れずに表示される`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 640 });
+      await page.goto("/");
+      const title = page.locator(".site-title");
+      const { scrollWidth, clientWidth } = await title.evaluate(el => ({
+        scrollWidth: el.scrollWidth,
+        clientWidth: el.clientWidth
+      }));
+      expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
+    });
+  }
+
+  test("中身の少ないページでもフッターが縦に伸びない", async ({ page }) => {
+    await page.goto("/this-page-does-not-exist/");
+    const box = await page.locator(".v-footer").boundingBox();
+    expect(box.height).toBeLessThan(80);
+  });
+});

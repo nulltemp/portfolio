@@ -10,14 +10,16 @@
 
 ## 優先度: 高
 
-- [ ] **スマホでサイト名が途中で切れる**
+- [x] **スマホでサイト名が途中で切れる**
   - ヘッダーのサイト名が「NULLTEMP'S PORT」（360px では「NULLTEMP'S P」）で切れ、省略記号も出ない。全ページの最上部なので目立つ。
   - 場所: [src/App.vue](../src/App.vue) の `v-toolbar-title`
   - 案: スマホ幅だけ文字サイズを下げる / 2 行を許す / 短い表記（例: 「nulltemp」）にする
-- [ ] **中身の少ないページでフッターが縦に大きく広がる**
+  - 対応: `v-spacer` がタイトルと余白を分け合ってタイトル幅が半分になっていたので削除。幅 400px 以下は文字サイズを下げ、収まらない場合は省略記号を出すようにした。
+- [x] **中身の少ないページでフッターが縦に大きく広がる**
   - 404 ページ（デスクトップ）でフッターの高さが約 280px になり、画面下半分が黒い帯になる（トップページでは 52px）。フッターが余った高さを埋めるように伸びている（computed style の `flex: 1 1 auto`）。
   - 場所: [src/App.vue](../src/App.vue) の `v-footer`
   - 案: フッターの高さを固定する（`flex: 0 0 auto` など）か、`v-main` 側を伸ばす
+  - 対応: `v-footer` に `flex-grow-0` を付け、余った高さは `v-main` だけが埋めるようにした。
 - [ ] **リンクがブラウザ標準の青＋下線のまま**
   - Link 欄の「LAPRAS」「teratail」と、Service 欄の各サービス URL が `rgb(0, 0, 238)` の素のリンク色で、Vuetify の配色から浮いている。
   - 場所: [src/components/LinkComponent.vue](../src/components/LinkComponent.vue)、[src/components/ServiceComponent.vue](../src/components/ServiceComponent.vue)

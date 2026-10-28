@@ -10,7 +10,7 @@
           >
         </component>
       </v-toolbar-title>
-      <v-spacer />
+      <!-- v-toolbar-title 自体が余白を埋めて伸びるので v-spacer は置かない（置くとスマホでタイトル幅が半分になる） -->
       <nav class="d-none d-md-flex" aria-label="メインナビゲーション">
         <v-btn
           v-for="item in navItems"
@@ -46,7 +46,8 @@
       <router-view />
     </v-main>
 
-    <v-footer color="grey-darken-4">
+    <!-- 中身の少ないページで余った高さをフッターが埋めないよう、伸びるのは v-main だけにする -->
+    <v-footer color="grey-darken-4" class="flex-grow-0">
       <v-spacer />
       <v-btn variant="text" to="/about/">このサイトについて</v-btn>
       <v-btn variant="text" href="/privacy/">Privacy Policy</v-btn>
@@ -83,6 +84,15 @@ export default {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .site-title {
+    font-size: 1.05rem;
+  }
 }
 
 .site-title a {
