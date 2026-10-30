@@ -62,8 +62,9 @@
 
 ## 開発の流れ
 
-- [ ] **CI がない**
+- [x] **CI がない**
   - `.github/workflows` がなく、PR ごとに lint・ビルド・Playwright テストが自動で走らない。GitHub Actions の追加を推奨。
+  - 対応: [.github/workflows/ci.yml](../.github/workflows/ci.yml) を追加。PR と master への push で、lint（修正せず検査のみ）・ビルド・Playwright テストを実行する。
 - [ ] **依存パッケージの更新**
   - `vuetify`・`vite`・`@playwright/test` などに小さなバージョンの更新が出ている。
   - `vue-router` v5 は大きなバージョンアップなので、上げる場合は動作確認が必要。
