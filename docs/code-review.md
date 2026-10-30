@@ -32,8 +32,22 @@
 - [ ] **プロフィールのリンク一覧が 2 か所に重複している**
   - [LinkComponent.vue](../src/components/LinkComponent.vue) の `links` と、[HomePage.vue](../src/pages/HomePage.vue) の JSON-LD の `sameAs` が同じ内容。片方だけ直し忘れやすい。
   - 案: [src/data/services.js](../src/data/services.js) と同じように `src/data/links.js` にまとめる
+- [ ] **favicon がない**（2026-10-30 追記）
+  - `public/` にも [index.html](../index.html) にも favicon がない。タブに既定のアイコンが出るうえ、ブラウザが `/favicon.ico` を取りに来るたびに 404 ページの HTML が返る。
+  - 案: `public/` に `favicon.svg`（または `favicon.ico`）と `apple-touch-icon.png` を置き、index.html に `<link rel="icon">` を追加する
 - [ ] **sitemap.xml の `lastmod` を手で更新している**（優先度低）
   - 場所: [public/sitemap.xml](../public/sitemap.xml)
+
+## 表示速度・セキュリティ
+
+- [ ] **Roboto フォントの読み込みが重い**（2026-10-30 追記）
+  - [index.html](../index.html) で Roboto を 6 種類の太さ（100〜900）読み込んでいるが、本文はほぼ日本語で、Roboto には日本語の文字がないためほとんど使われない。
+  - この CSS は表示を止める読み込み方（render-blocking）で、外部への接続も増える。
+  - 案: 使う太さ（400・500・700 程度）だけにする / 削除してシステムフォントに任せる
+- [ ] **セキュリティ・キャッシュ用のヘッダーがない**（2026-10-30 追記）
+  - Cloudflare Pages はレスポンスヘッダーを `public/_headers` で設定できるが、このファイルがない。
+  - 案: `X-Content-Type-Options: nosniff`・`Referrer-Policy`・`X-Frame-Options`（または CSP の `frame-ancestors`）を付ける。ファイル名にハッシュが付く `/assets/*` には `Cache-Control: public, max-age=31536000, immutable` を付ける。
+  - GA・AdSense・Google フォームを使っているので、CSP 全体の設定は手間がかかる。まずは簡単なヘッダーから始めるとよい。
 
 ## アクセシビリティ
 
@@ -52,6 +66,9 @@
   - `sass` は src で使われていないので、不要なら削除できる。
 - [ ] **使われていない設定ファイルが残っている**
   - `.browserslistrc` と中身が空の `postcss.config.js` は Vue CLI 時代の名残で、今の Vite 構成では使われていない。
+- [ ] **サービスページの追加で 3 か所を直す必要がある**（2026-10-30 追記）
+  - [src/routes.js](../src/routes.js) のサービス詳細ルートは、[src/data/services.js](../src/data/services.js) の `page` と同じ内容。さらに [public/sitemap.xml](../public/sitemap.xml) も手で追記している。
+  - 案: ルートを services.js から作る（`page` からコンポーネントを決める）。sitemap.xml はビルド時に routes から出力する（vite-ssg の `onFinished` フック）。上の「sitemap.xml の `lastmod` を手で更新している」もあわせて解消できる。
 - [ ] **同じスタイルが 2 か所にある**
   - `.wrap-list` のスタイルが [SkillComponent.vue](../src/components/SkillComponent.vue) と [WorkComponent.vue](../src/components/WorkComponent.vue) で重複している。
 - [ ] **グローバルなスタイルが漏れやすい**
