@@ -23,14 +23,22 @@
 - [ ] **Twitter の URL が古い**
   - `https://twitter.com/nulltemp1` のまま。`x.com` への更新を検討する（ui-review.md の旧ロゴの件とあわせて対応するとよい）。
   - 場所: [src/components/LinkComponent.vue](../src/components/LinkComponent.vue)、[src/pages/HomePage.vue](../src/pages/HomePage.vue) の JSON-LD
+- [ ] **Profile の本文が 1 行だけ**（2026-10-30 追記）
+  - 本文が「プログラマのnulltempです」だけで、最初に読まれる欄なのに得意分野や強みが伝わらない。
+  - 場所: [src/components/ProfileComponent.vue](../src/components/ProfileComponent.vue)
+  - 案: 2〜3 行の自己紹介と代表的な実績を書く。内容は運営者の確認が必要。
 
 ## SEO・メタ情報
+
+- [x] **全ページの HTML が `lang="en"` になっていた**（2026-10-30 追記）
+  - [index.html](../index.html) は `lang="ja"` なのに、ビルド時に unhead の既定値で上書きされ、Vue の全ページが `<html lang="en">` で出力されていた。読み上げが英語の発音になる、ブラウザが翻訳を勧めるなどの影響がある。
+  - 対応: [src/App.vue](../src/App.vue) の `useHead` で `lang` を `ja` に指定し、[tests/e2e/pages.spec.js](../tests/e2e/pages.spec.js) に確認するテストを追加した。
 
 - [ ] **`og:image` がどのページにもない**
   - SNS でシェアしたときに画像が出ない。OGP 画像（1200×630）を用意し、`twitter:card` を `summary_large_image` にするとよい。
   - 場所: [index.html](../index.html) と各ページの `useHead`
-- [ ] **プロフィールのリンク一覧が 2 か所に重複している**
-  - [LinkComponent.vue](../src/components/LinkComponent.vue) の `links` と、[HomePage.vue](../src/pages/HomePage.vue) の JSON-LD の `sameAs` が同じ内容。片方だけ直し忘れやすい。
+- [ ] **プロフィールのリンク一覧が 3 か所に重複している**
+  - [LinkComponent.vue](../src/components/LinkComponent.vue) の `links` と、[HomePage.vue](../src/pages/HomePage.vue) の JSON-LD の `sameAs` が同じ内容。さらに [AboutPage.vue](../src/pages/AboutPage.vue) の「技術情報の発信」にも一部（ブログ・Qiita・GitHub）がある。どれかを直し忘れやすい。
   - 案: [src/data/services.js](../src/data/services.js) と同じように `src/data/links.js` にまとめる
 - [ ] **favicon がない**（2026-10-30 追記）
   - `public/` にも [index.html](../index.html) にも favicon がない。タブに既定のアイコンが出るうえ、ブラウザが `/favicon.ico` を取りに来るたびに 404 ページの HTML が返る。
@@ -48,9 +56,18 @@
   - Cloudflare Pages はレスポンスヘッダーを `public/_headers` で設定できるが、このファイルがない。
   - 案: `X-Content-Type-Options: nosniff`・`Referrer-Policy`・`X-Frame-Options`（または CSP の `frame-ancestors`）を付ける。ファイル名にハッシュが付く `/assets/*` には `Cache-Control: public, max-age=31536000, immutable` を付ける。
   - GA・AdSense・Google フォームを使っているので、CSP 全体の設定は手間がかかる。まずは簡単なヘッダーから始めるとよい。
+- [ ] **CSS と JS が重い**（2026-10-30 追記）
+  - 全ページで読み込む `app-*.css` が 248KB（gzip 後 37KB）、`app-*.js` が 282KB（gzip 後 100KB）ある。動きが必要なのはほぼドロワーだけで、ほかは静的な内容。
+  - 案: [ui-review.md](ui-review.md) のトップページの情報量の課題を片付けたあとで、Vuetify の不要なスタイルを減らせるか試す。
 
 ## アクセシビリティ
 
+- [x] **スマホのメニューボタンに名前がなかった**（2026-10-30 追記）
+  - `v-app-bar-nav-icon` に `aria-label` がなく、スクリーンリーダーでは何のボタンか分からなかった。
+  - 対応: [src/App.vue](../src/App.vue) で `aria-label="メニューを開く"` を付け、[tests/e2e/home.spec.js](../tests/e2e/home.spec.js) のドロワーのテストをこの名前でボタンを探す形に変えた。
+- [ ] **本文へのスキップリンクがない**（2026-10-30 追記）
+  - キーボードで操作すると、ページを開くたびにナビゲーションを通過することになる。
+  - 場所: [src/App.vue](../src/App.vue)
 - [ ] **見出しのレベルが飛んでいる**
   - Service・Skill・Works 欄で `h2` の次が `h4` になっていて `h3` がない。スクリーンリーダーで見出しをたどると構造がわかりにくい。
   - 場所: [src/components/ServiceComponent.vue](../src/components/ServiceComponent.vue)、[src/components/SkillComponent.vue](../src/components/SkillComponent.vue)、[src/components/WorkComponent.vue](../src/components/WorkComponent.vue)
@@ -86,3 +103,12 @@
   - `vuetify`・`vite`・`@playwright/test` などに小さなバージョンの更新が出ている。
   - `vue-router` v5 は大きなバージョンアップなので、上げる場合は動作確認が必要。
   - `@unhead/vue` は vite-ssg が使っている v2 に合わせる方針なので、v3 には上げない。
+- [ ] **依存パッケージの更新に気づく仕組みがない**（2026-10-30 追記）
+  - `.github/dependabot.yml` がなく、更新や脆弱性の修正に手動で気づくしかない。
+  - 案: Dependabot を追加する。`@unhead/vue` の v3 は上の方針に合わせて対象から外す。
+- [ ] **Node のバージョンが指定されていない**（2026-10-30 追記）
+  - `.nvmrc` も package.json の `engines` もない。CI は Node 22 だが、開発環境は別のバージョンのことがあり、Cloudflare Pages 側のバージョンはリポジトリからは確認できない。
+  - 案: `.nvmrc` を追加し、CI（`node-version-file`）と Cloudflare Pages で同じバージョンを使う。
+- [ ] **アクセシビリティの自動テストがない**（2026-10-30 追記）
+  - メニューボタンの名前がないような問題を、今の UI テストでは一般的に検出できない。
+  - 案: `@axe-core/playwright` を追加し、主なページを検査する。

@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <v-app-bar color="grey-lighten-4">
-      <v-app-bar-nav-icon class="d-flex d-md-none" @click="drawer = !drawer" />
+      <v-app-bar-nav-icon
+        class="d-flex d-md-none"
+        aria-label="メニューを開く"
+        @click="drawer = !drawer"
+      />
       <v-toolbar-title>
         <!-- 詳細ページでは各ページの見出しが h1 になるので、サイト名はトップだけ h1 にする -->
         <component :is="isHome ? 'h1' : 'div'" class="site-title">
@@ -56,8 +60,14 @@
 </template>
 
 <script>
+import { useHead } from "@unhead/vue";
+
 export default {
   name: "App",
+  setup() {
+    // 指定しないと、ビルド時に unhead の既定値で index.html の lang が "en" に上書きされる
+    useHead({ htmlAttrs: { lang: "ja" } });
+  },
   data() {
     return {
       drawer: false,

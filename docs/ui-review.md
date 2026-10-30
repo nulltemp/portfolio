@@ -28,6 +28,11 @@
   - 360px 幅では 6 つが詰まり、アイコン同士がほぼ接する。
   - Twitter のアイコンが旧ロゴのまま。
   - 場所: [src/components/LinkComponent.vue](../src/components/LinkComponent.vue)、`src/assets/`
+- [ ] **トップページの情報量が多すぎる**（2026-10-30 追記）
+  - `v-card` が 70 個、チップが 191 個、DOM 要素が約 1,900 個あり、HTML は 193KB になる。縦の長さはデスクトップで 11,335px、Pixel 7 で 12,674px。
+  - 読むのに時間がかかり、ページも重い。下の「カードの入れ子が深い」の影響が大きい。
+  - 場所: [src/components/SkillComponent.vue](../src/components/SkillComponent.vue)、[src/components/WorkComponent.vue](../src/components/WorkComponent.vue)
+  - 案: カードの入れ子をやめて見出しと余白で区切る。古い案件は折りたたむ。
 
 ## 優先度: 中（デザインの好みの範囲）
 
@@ -44,7 +49,9 @@
 - [ ] **表記ゆれ・ラベル**
   - 「製品CMS改修」の使用技術チップに `java`（小文字）がある。ほかは `Java`。
   - Profile の「主な職歴」の下は「バックエンド 5年以上」などの経験分野なので、見出しは「経験」などのほうが合う。
-  - 場所: [src/components/WorkComponent.vue](../src/components/WorkComponent.vue)、[src/components/ProfileComponent.vue](../src/components/ProfileComponent.vue)
+  - ナビゲーションは「Work」、見出しは「Works」になっている。（2026-10-30 追記）
+  - 資格の日付が、IT資格は「2022年04月」、その他資格は「2007/04」と形式が混在している。（2026-10-30 追記）
+  - 場所: [src/components/WorkComponent.vue](../src/components/WorkComponent.vue)、[src/components/ProfileComponent.vue](../src/components/ProfileComponent.vue)、[src/App.vue](../src/App.vue)、[src/components/SkillComponent.vue](../src/components/SkillComponent.vue)
 
 ## アクセシビリティ・堅牢性
 

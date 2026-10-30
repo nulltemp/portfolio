@@ -59,7 +59,7 @@ test.describe("ナビゲーション", () => {
   }) => {
     test.skip(!isMobile, "モバイル幅のみ");
     await page.goto("/");
-    await page.locator(".v-app-bar-nav-icon").click();
+    await page.getByRole("button", { name: "メニューを開く" }).click();
     const drawer = page.getByRole("navigation", {
       name: "メインナビゲーション"
     });

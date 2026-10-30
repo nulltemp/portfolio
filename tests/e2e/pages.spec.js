@@ -49,6 +49,14 @@ test.describe("プリレンダリング", () => {
     ).toBeVisible();
     await context.close();
   });
+
+  const paths = ["/", "/about/", ...services.map(s => s.page), "/404.html"];
+  for (const path of paths) {
+    test(`${path} の HTML の言語が日本語になっている`, async ({ request }) => {
+      const html = await (await request.get(path)).text();
+      expect(html).toMatch(/<html[^>]*\blang="ja"/);
+    });
+  }
 });
 
 test.describe("404 ページ", () => {
