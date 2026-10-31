@@ -28,5 +28,12 @@ export default [
     page: "/services/jinro/",
     description:
       "自由入力のチャットを使わず、ボタンで選ぶ「定型宣言」（CO・占い結果の報告など）だけで遊ぶ、ブラウザ向けのオンライン人狼ゲームです。"
+  },
+  {
+    title: "proc-quest",
+    url: "https://proc-quest.nulltemp.com/",
+    page: "/services/proc-quest/",
+    description:
+      "遊ぶたびに自動生成されるグラフ状のマップを、ノードからノードへ移動しながら進み、敵のボスを倒すことを目指すターン制のブラウザゲームです。"
   }
 ];
