@@ -22,6 +22,20 @@ test.describe("トップページ", () => {
     ).toBeVisible();
   });
 
+  test("見出しのレベルが飛んでいない", async ({ page }) => {
+    const levels = await page
+      .locator("h1, h2, h3, h4, h5, h6")
+      .evaluateAll(els => els.map(el => Number(el.tagName.slice(1))));
+    expect(levels.length).toBeGreaterThan(0);
+    let previous = 0;
+    for (const level of levels) {
+      expect(level, `h${previous} の次が h${level}`).toBeLessThanOrEqual(
+        previous + 1
+      );
+      previous = level;
+    }
+  });
+
   test("ナビゲーションの各セクションが存在する", async ({ page }) => {
     for (const id of sections) {
       await expect(page.locator(`#${id}`)).toBeAttached();

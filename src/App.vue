@@ -112,6 +112,15 @@ export default {
 </style>
 
 <style>
+/*
+ * トップページの各欄（h2）の中のカードの見出し（Service・Skill・Works）。
+ * 見出しのレベルを飛ばさないよう h3 にしているが、見た目は以前の h4 のままにする。
+ */
+.v-card-title > h3 {
+  font-size: 1em;
+  margin-block: 1.33em;
+}
+
 /* 詳細ページなど、文章が中心のページで共通に使うスタイル */
 .page-title {
   font-size: 1.5rem;
