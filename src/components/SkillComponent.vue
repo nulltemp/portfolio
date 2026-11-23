@@ -9,7 +9,7 @@
       <v-card-text class="text-left">
         <v-card>
           <v-card-item
-            ><v-card-title><h4>使用技術</h4></v-card-title></v-card-item
+            ><v-card-title><h3>使用技術</h3></v-card-title></v-card-item
           >
           <v-list>
             <v-list-item
@@ -40,7 +40,7 @@
         </v-card>
         <v-card>
           <v-card-item
-            ><v-card-title><h4>IT資格</h4></v-card-title></v-card-item
+            ><v-card-title><h3>IT資格</h3></v-card-title></v-card-item
           >
           <v-list class="wrap-list">
             <v-list-item

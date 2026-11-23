@@ -13,7 +13,7 @@
       >
         <v-card>
           <v-card-title
-            ><h4>{{ service.title }}</h4></v-card-title
+            ><h3>{{ service.title }}</h3></v-card-title
           >
           <v-card-text>{{ service.description }}</v-card-text>
           <v-card-actions class="flex-wrap">

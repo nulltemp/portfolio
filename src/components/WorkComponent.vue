@@ -9,7 +9,7 @@
       <v-card-text class="text-left" v-for="work in works" :key="work.title">
         <v-card>
           <v-card-title
-            ><h4>{{ work.title }}</h4></v-card-title
+            ><h3>{{ work.title }}</h3></v-card-title
           >
           <v-card>
             <v-card-item><v-card-title>主な担当内容</v-card-title></v-card-item>
