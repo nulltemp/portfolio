@@ -20,7 +20,7 @@ export default [
     url: "https://dev-tools.nulltemp.com/",
     page: "/services/dev-tools/",
     description:
-      "文字数カウンター、JSON整形、JWTデコーダーなど、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
+      "JSON整形、JWTデコーダー、Base64・URLエンコード、UUID生成など、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
   },
   {
     title: "だまって人狼",

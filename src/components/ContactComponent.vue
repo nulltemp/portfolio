@@ -12,9 +12,7 @@
         loading="lazy"
         width="100%"
         height="620"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
+        class="contact-form"
         >読み込んでいます…</iframe
       >
     </v-card>
@@ -36,4 +34,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.contact-form {
+  display: block;
+  border: 0;
+  margin: 0;
+}
+</style>
