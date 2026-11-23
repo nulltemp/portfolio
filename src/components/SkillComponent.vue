@@ -163,8 +163,8 @@ export default {
           date: "2022年04月"
         },
         { name: "LPIC-2", date: "2020年10月" },
-        { name: "OSS-DB​ ​Silver (INACTIVE)", date: "2016年03月" },
-        { name: "JSTQB​ Foundation​ Level", date: "2014年10月" },
+        { name: "OSS-DB Silver (INACTIVE)", date: "2016年03月" },
+        { name: "JSTQB Foundation Level", date: "2014年10月" },
         { name: "基本情報技術者", date: "2008年05月" }
       ],
       otherQualifications: [
