@@ -138,6 +138,24 @@ test.describe("アイコン", () => {
     expect(html).toContain("<svg");
     expect(html).not.toContain("materialdesignicons");
   });
+
+  test("favicon と apple-touch-icon が設定され、取得できる", async ({
+    page,
+    request
+  }) => {
+    await page.goto("/");
+    for (const [rel, contentType] of [
+      ["icon", "image/svg+xml"],
+      ["apple-touch-icon", "image/png"]
+    ]) {
+      const href = await page
+        .locator(`link[rel="${rel}"]`)
+        .getAttribute("href");
+      const res = await request.get(href);
+      expect(res.status()).toBe(200);
+      expect(res.headers()["content-type"]).toContain(contentType);
+    }
+  });
 });
 
 test.describe("スキップリンク", () => {
