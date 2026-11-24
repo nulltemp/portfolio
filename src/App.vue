@@ -1,5 +1,9 @@
 <template>
   <v-app>
+    <!-- キーボードで操作するとき、ナビゲーションを飛ばして本文へ移れるようにする（フォーカスしたときだけ表示） -->
+    <a href="#main-content" class="skip-link" @click.prevent="skipToMain"
+      >本文へスキップ</a
+    >
     <v-app-bar color="grey-lighten-4">
       <v-app-bar-nav-icon
         class="d-flex d-md-none"
@@ -46,7 +50,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
+    <v-main id="main-content" tabindex="-1">
       <router-view />
     </v-main>
 
@@ -81,6 +85,12 @@ export default {
       ]
     };
   },
+  methods: {
+    // ハッシュでの移動は vue-router の scrollBehavior を通るので、本文に直接フォーカスを移す
+    skipToMain() {
+      document.getElementById("main-content")?.focus();
+    }
+  },
   computed: {
     isHome() {
       return this.$route.path === "/";
@@ -112,6 +122,27 @@ export default {
 </style>
 
 <style>
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #1976d2;
+  border-radius: 4px;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
 /*
  * トップページの各欄（h2）の中のカードの見出し（Service・Skill・Works）。
  * 見出しのレベルを飛ばさないよう h3 にしているが、見た目は以前の h4 のままにする。
