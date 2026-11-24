@@ -139,3 +139,17 @@ test.describe("アイコン", () => {
     expect(html).not.toContain("materialdesignicons");
   });
 });
+
+test.describe("スキップリンク", () => {
+  test("最初の Tab で「本文へスキップ」にフォーカスし、押すと本文へ移る", async ({
+    page
+  }) => {
+    await page.goto("/");
+    const skipLink = page.getByRole("link", { name: "本文へスキップ" });
+    await page.keyboard.press("Tab");
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).toBeInViewport();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("main")).toBeFocused();
+  });
+});
