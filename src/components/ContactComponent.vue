@@ -15,6 +15,14 @@
         class="contact-form"
         >読み込んでいます…</iframe
       >
+      <v-card-text class="text-body-2">
+        フォームが表示されない場合は、<a
+          :href="formUrl"
+          target="_blank"
+          rel="noopener"
+          >こちらからお問い合わせフォームを開いてください</a
+        >。
+      </v-card-text>
     </v-card>
   </base-layout>
 </template>
@@ -28,8 +36,14 @@ export default {
   },
   data() {
     return {
-      src: "https://docs.google.com/forms/d/e/1FAIpQLSdDA-fXdX0pxWWJZY6KDD15joN2WCk6xoF1G3VnKciYL3uVKA/viewform?embedded=true"
+      formUrl:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdDA-fXdX0pxWWJZY6KDD15joN2WCk6xoF1G3VnKciYL3uVKA/viewform"
     };
+  },
+  computed: {
+    src() {
+      return `${this.formUrl}?embedded=true`;
+    }
   }
 };
 </script>
