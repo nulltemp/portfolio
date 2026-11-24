@@ -1,0 +1,11 @@
+# Cloudflare Pages のレスポンスヘッダー（https://developers.cloudflare.com/pages/configuration/headers/）
+# CSP は GA・AdSense・Google フォームの iframe があるため付けていない（#53）。
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+# Vite が出力するファイルはファイル名にハッシュが付くので、長くキャッシュしてよい
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

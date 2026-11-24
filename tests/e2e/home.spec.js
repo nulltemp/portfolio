@@ -82,6 +82,21 @@ test.describe("ナビゲーション", () => {
     await expect(page.locator("#contact")).toBeInViewport();
   });
 
+  test("Contact にフォームへの直接リンクがある", async ({ page }) => {
+    await page.goto("/");
+    const link = page
+      .locator("#contact")
+      .getByRole("link", { name: /お問い合わせフォームを開いてください/ });
+    await expect(link).toHaveAttribute(
+      "href",
+      /^https:\/\/docs\.google\.com\/forms\/.+\/viewform$/
+    );
+    await expect(page.locator("#contact iframe")).toHaveAttribute(
+      "src",
+      /viewform\?embedded=true$/
+    );
+  });
+
   test("フッターから「このサイトについて」へ移動する", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("link", { name: "このサイトについて" }).click();
