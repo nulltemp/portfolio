@@ -12,7 +12,11 @@
             ><h3>{{ work.title }}</h3></v-card-title
           >
           <v-card>
-            <v-card-item><v-card-title>主な担当内容</v-card-title></v-card-item>
+            <v-card-item
+              ><v-card-title class="work-subtitle"
+                >主な担当内容</v-card-title
+              ></v-card-item
+            >
             <v-card-text>
               <v-list class="wrap-list">
                 <v-list-item
@@ -25,11 +29,19 @@
             </v-card-text>
           </v-card>
           <v-card>
-            <v-card-item><v-card-title>期間</v-card-title></v-card-item>
+            <v-card-item
+              ><v-card-title class="work-subtitle"
+                >期間</v-card-title
+              ></v-card-item
+            >
             <v-card-text>{{ work.period }} </v-card-text>
           </v-card>
           <v-card>
-            <v-card-item><v-card-title>主な使用技術</v-card-title></v-card-item>
+            <v-card-item
+              ><v-card-title class="work-subtitle"
+                >主な使用技術</v-card-title
+              ></v-card-item
+            >
             <v-card-text
               ><v-chip v-for="tech in work.technologies" :key="tech">{{
                 tech
@@ -302,13 +314,9 @@ export default {
 </script>
 
 <style scoped>
-.wrap-list :deep(.v-list-item-title) {
-  white-space: normal;
-}
-
-.wrap-list :deep(.v-list-item) {
-  min-height: unset;
-  padding-top: 8px;
-  padding-bottom: 8px;
+/* 案件名（h3）より小さくする（v-card-title の既定は 1.375rem で、案件名より大きくなる） */
+.v-card-title.work-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
 }
 </style>

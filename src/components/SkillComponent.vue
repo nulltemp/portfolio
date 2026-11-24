@@ -181,15 +181,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.wrap-list :deep(.v-list-item-title) {
-  white-space: normal;
-}
-
-.wrap-list :deep(.v-list-item) {
-  min-height: unset;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-</style>

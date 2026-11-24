@@ -152,6 +152,22 @@ export default {
   margin-block: 1.33em;
 }
 
+/* v-card-item の中（Skill）では v-card-item 自身の余白があるので、見出しの上下の余白は付けない */
+.v-card-item .v-card-title > h3 {
+  margin-block: 0;
+}
+
+/* 長い項目を折り返す v-list（Skill の資格・Works の担当内容）。Vuetify の既定より優先させるため .v-list を付ける */
+.v-list.wrap-list .v-list-item-title {
+  white-space: normal;
+}
+
+.v-list.wrap-list .v-list-item {
+  min-height: unset;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 /* 詳細ページなど、文章が中心のページで共通に使うスタイル */
 .page-title {
   font-size: 1.5rem;
