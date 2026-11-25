@@ -1,5 +1,5 @@
 // トップの Service 欄と各サービスの詳細ページで共有するデータ。
-// page は詳細ページのパス（src/routes.js に登録）。page があるサービスだけ「詳しく見る」を出す。
+// page は詳細ページのパス（ルートと sitemap.xml はここから作る。コンポーネントは src/data/pages.js の pageFile の命名規則で決まる）。page があるサービスだけ「詳しく見る」を出す。
 export default [
   {
     title: "コインキャッチゲーム",

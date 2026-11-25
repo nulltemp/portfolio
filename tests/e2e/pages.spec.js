@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import services from "../../src/data/services.js";
+import { SITE_URL, pages } from "../../src/data/pages.js";
 
 test.describe("サービス詳細ページ", () => {
   for (const service of services.filter(s => s.page)) {
@@ -79,4 +80,17 @@ test.describe("404 ページ", () => {
       page.getByRole("heading", { level: 1, name: "ページが見つかりません" })
     ).toBeVisible();
   });
+});
+
+test("sitemap.xml に全ページが載っている", async ({ request }) => {
+  const response = await request.get("/sitemap.xml");
+  expect(response.ok()).toBe(true);
+  const xml = await response.text();
+  for (const path of [...pages, "/privacy/"]) {
+    expect(xml).toContain(`<loc>${SITE_URL}${path}</loc>`);
+  }
+  expect(xml).not.toContain("/404");
+  for (const [, date] of xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)) {
+    expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  }
 });
