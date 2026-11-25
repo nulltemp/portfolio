@@ -2,7 +2,7 @@
   <section class="content">
     <v-container>
       <v-row justify="center" class="flex-wrap">
-        <v-col md="12" lg="8">
+        <v-col cols="12" :lg="wide ? 10 : 8" :xl="wide ? 9 : 8">
           <slot />
         </v-col>
       </v-row>
@@ -11,7 +11,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    // トップページの各欄のように、表や一覧が中心で横幅を使いたいときに付ける。
+    // 文章が中心の詳細ページは、読みやすい行の長さを保つため付けない
+    wide: { type: Boolean, default: false }
+  }
+};
 </script>
 
 <style scoped>

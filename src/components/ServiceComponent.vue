@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout wide>
     <v-card>
       <v-card-item>
         <v-card-title>
@@ -17,9 +17,13 @@
           >
           <v-card-text>{{ service.description }}</v-card-text>
           <v-card-actions class="flex-wrap">
-            <a :href="service.url" target="_blank" rel="noopener">{{
-              service.url
-            }}</a>
+            <a
+              :href="service.url"
+              target="_blank"
+              rel="noopener"
+              class="service-link"
+              >{{ service.url }}</a
+            >
             <v-spacer />
             <v-btn
               v-if="service.page"
@@ -50,3 +54,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* ブラウザ標準の青＋下線ではなく、テーマの primary 色にそろえる（下線はポインターを乗せたときだけ） */
+.service-link {
+  color: rgb(var(--v-theme-primary));
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.service-link:hover,
+.service-link:focus-visible {
+  text-decoration: underline;
+}
+</style>

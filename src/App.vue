@@ -79,7 +79,7 @@ export default {
         { hash: "#profile", title: "Profile" },
         { hash: "#link", title: "Link" },
         { hash: "#skill", title: "Skill" },
-        { hash: "#work", title: "Work" },
+        { hash: "#work", title: "Works" },
         { hash: "#service", title: "Service" },
         { hash: "#contact", title: "Contact" }
       ]

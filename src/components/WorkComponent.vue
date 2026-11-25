@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout wide>
     <v-card>
       <v-card-item>
         <v-card-title>
@@ -107,7 +107,7 @@ export default {
           technologies: [
             "Docker",
             "Python",
-            "java",
+            "Java",
             "JavaScript",
             "Linux",
             "MySQL",

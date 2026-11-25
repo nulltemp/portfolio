@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout wide>
     <v-card>
       <v-card-item>
         <v-card-title>
@@ -9,7 +9,7 @@
       <v-card-text>
         プログラマのnulltempです
         <v-list>
-          <v-list-subheader>主な職歴</v-list-subheader>
+          <v-list-subheader>経験</v-list-subheader>
           <v-list-item
             v-for="(work, index) in works"
             :key="index"
