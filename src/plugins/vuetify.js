@@ -1,7 +1,7 @@
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
-import { mdiChevronLeft, mdiHome, mdiOpenInNew } from "@mdi/js";
+import { mdiChevronLeft, mdiHome, mdiLink, mdiOpenInNew } from "@mdi/js";
 
 // アイコンは CDN のフォントではなく SVG を HTML に埋め込む（CDN が落ちてもアイコンが消えない）。
 // テンプレートでは "$home" のようにエイリアスで指定する。
@@ -13,6 +13,7 @@ const vuetify = createVuetify({
     aliases: {
       ...aliases,
       home: mdiHome,
+      link: mdiLink,
       openInNew: mdiOpenInNew,
       chevronLeft: mdiChevronLeft
     },

@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout wide>
     <v-card>
       <v-card-item>
         <v-card-title>
