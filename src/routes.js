@@ -1,34 +1,23 @@
 // vite-ssg は、ここに登録したパスごとに静的な HTML を出力する。
-// 新しいページを足したら public/sitemap.xml にも追加すること。
+// ページの一覧は src/data/pages.js にあり、サービスの詳細ページは
+// src/data/services.js の page から作る（コンポーネントは pageFile の命名規則で決まる）。
+// sitemap.xml もビルド時に同じ一覧から出力する（vite.config.js）。
+import { pages, pageFile } from "./data/pages.js";
+
+const components = import.meta.glob("./pages/**/*Page.vue");
+
+function pageComponent(path) {
+  const component = components[`./pages/${pageFile(path)}`];
+  if (!component) {
+    throw new Error(
+      `${path} のページ src/pages/${pageFile(path)} がありません`
+    );
+  }
+  return component;
+}
+
 export default [
-  {
-    path: "/",
-    component: () => import("./pages/HomePage.vue")
-  },
-  {
-    path: "/about/",
-    component: () => import("./pages/AboutPage.vue")
-  },
-  {
-    path: "/services/coin-catching-game/",
-    component: () => import("./pages/services/CoinCatchingGamePage.vue")
-  },
-  {
-    path: "/services/life-game/",
-    component: () => import("./pages/services/LifeGamePage.vue")
-  },
-  {
-    path: "/services/dev-tools/",
-    component: () => import("./pages/services/DevToolsPage.vue")
-  },
-  {
-    path: "/services/jinro/",
-    component: () => import("./pages/services/JinroPage.vue")
-  },
-  {
-    path: "/services/proc-quest/",
-    component: () => import("./pages/services/ProcQuestPage.vue")
-  },
+  ...pages.map(path => ({ path, component: pageComponent(path) })),
   {
     // ビルド時は /404 として描画し、vite.config.js で dist/404.html に出力する
     path: "/:pathMatch(.*)*",
