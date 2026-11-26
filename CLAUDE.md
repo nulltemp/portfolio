@@ -41,7 +41,8 @@ CI is GitHub Actions ([.github/workflows/ci.yml](.github/workflows/ci.yml)): on 
 - Icons are inline SVG from `@mdi/js` via Vuetify's `mdi-svg` iconset (no icon font/CDN). Register each icon as an alias in [src/plugins/vuetify.js](src/plugins/vuetify.js) and reference it as `"$name"` in templates; plain `mdi-xxx` class strings won't render.
 - Vuetify components are auto-imported (`vite-plugin-vuetify` with `autoImport: true` in [vite.config.js](vite.config.js)), so no manual per-component Vuetify imports are needed.
 - Path alias `@` maps to `src/` (configured in vite.config.js).
-- Google Analytics (gtag.js) and the Google AdSense script are wired directly into [index.html](index.html); [public/ads.txt](public/ads.txt) holds the AdSense publisher ID.
+- Google Analytics (gtag.js) and the Google AdSense script are inserted by an inline script in [index.html](index.html) (and GA alone in `public/privacy/index.html`) only when `location.hostname` is `nulltemp.com`, so the dev server, Playwright (`vite preview`) and Cloudflare Pages previews aren't tracked and don't load ads (like the sibling sites); `tests/e2e/pages.spec.js` checks both cases. [public/ads.txt](public/ads.txt) holds the AdSense publisher ID.
+- JSON-LD: the top page (`ProfilePage`) and `/about/` (`AboutPage`) share the operator's `Person` from [src/data/person.js](src/data/person.js) as `mainEntity`.
 
 ## Code style
 
