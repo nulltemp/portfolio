@@ -48,7 +48,14 @@ test.describe("トップページ", () => {
       await expect(
         serviceSection.getByRole("heading", { name: service.title })
       ).toBeVisible();
+      await expect(
+        serviceSection.locator(`a[href="${service.url}"][target="_blank"]`)
+      ).toBeVisible();
     }
+    // サービスごとの紹介ページは廃止した（#97）
+    await expect(serviceSection.locator('a[href^="/services/"]')).toHaveCount(
+      0
+    );
   });
 });
 
@@ -82,19 +89,19 @@ test.describe("ナビゲーション", () => {
     await expect(page.locator("#contact")).toBeInViewport();
   });
 
-  test("Contact にフォームへの直接リンクがある", async ({ page }) => {
+  test("Contact はフォームを埋め込まず、新しいタブで開くリンクを置く", async ({
+    page
+  }) => {
     await page.goto("/");
     const link = page
       .locator("#contact")
-      .getByRole("link", { name: /お問い合わせフォームを開いてください/ });
+      .getByRole("link", { name: /お問い合わせフォームを開く/ });
     await expect(link).toHaveAttribute(
       "href",
       /^https:\/\/docs\.google\.com\/forms\/.+\/viewform$/
     );
-    await expect(page.locator("#contact iframe")).toHaveAttribute(
-      "src",
-      /viewform\?embedded=true$/
-    );
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(page.locator("iframe")).toHaveCount(0);
   });
 
   test("フッターから「このサイトについて」へ移動する", async ({ page }) => {
@@ -149,7 +156,7 @@ test.describe("アイコン", () => {
   test("プリレンダリングした HTML にアイコンの SVG が含まれている", async ({
     request
   }) => {
-    const html = await (await request.get("/services/jinro/")).text();
+    const html = await (await request.get("/404.html")).text();
     expect(html).toContain("<svg");
     expect(html).not.toContain("materialdesignicons");
   });

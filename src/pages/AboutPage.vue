@@ -47,11 +47,13 @@
         <h2>公開しているサービス</h2>
         <p>
           nulltemp.com
-          のサブドメインで、次のWebサービスを公開しています。どれも登録不要・無料で、ブラウザからすぐに使えます。各サービスの遊び方や使い方、作った理由、使った技術は、それぞれの紹介ページで説明しています。
+          のサブドメインで、次のWebサービスを公開しています。どれも登録不要・無料で、ブラウザからすぐに使えます。
         </p>
         <ul>
           <li v-for="service in services" :key="service.url">
-            <router-link :to="service.page">{{ service.title }}</router-link
+            <a :href="service.url" target="_blank" rel="noopener">{{
+              service.title
+            }}</a
             >：{{ service.description }}
           </li>
         </ul>

@@ -1,5 +1,5 @@
 # Cloudflare Pages のレスポンスヘッダー（https://developers.cloudflare.com/pages/configuration/headers/）
-# CSP は GA・AdSense・Google フォームの iframe があるため付けていない（#53）。
+# CSP は GA・AdSense があるため付けていない（#53）。
 
 /*
   X-Content-Type-Options: nosniff

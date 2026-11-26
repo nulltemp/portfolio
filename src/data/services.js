@@ -1,38 +1,32 @@
-// トップの Service 欄と各サービスの詳細ページで共有するデータ。
-// page は詳細ページのパス（ルートと sitemap.xml はここから作る。コンポーネントは src/data/pages.js の pageFile の命名規則で決まる）。page があるサービスだけ「詳しく見る」を出す。
+// トップの Service 欄と「このサイトについて」（/about/）で共有するデータ。
 export default [
   {
     title: "コインキャッチゲーム",
     url: "https://coin-catching-game.nulltemp.com/",
-    page: "/services/coin-catching-game/",
     description:
       "矢印キーやタッチでプレイヤーを操作し、上から降ってくるコインをキャッチしてスコアを競う、Phaser製のシンプルなアクションゲームです。"
   },
   {
     title: "ライフゲーム",
     url: "https://life-game-vue.nulltemp.com/",
-    page: "/services/life-game/",
     description:
       "Conwayのライフゲーム（セルオートマトン）をVue 3 + Vuetifyで実装したシミュレーターです。グリッドサイズやシミュレーション速度を自由に調整できます。"
   },
   {
     title: "デベロッパーツール",
     url: "https://dev-tools.nulltemp.com/",
-    page: "/services/dev-tools/",
     description:
       "JSON整形、JWTデコーダー、Base64・URLエンコード、UUID生成、ハッシュ生成、テキスト差分など、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
   },
   {
     title: "だまって人狼",
     url: "https://jinro.nulltemp.com/",
-    page: "/services/jinro/",
     description:
       "自由入力のチャットを使わず、ボタンで選ぶ「定型宣言」（CO・占い結果の報告など）だけで遊ぶ、ブラウザ向けのオンライン人狼ゲームです。"
   },
   {
     title: "proc-quest",
     url: "https://proc-quest.nulltemp.com/",
-    page: "/services/proc-quest/",
     description:
       "遊ぶたびに自動生成されるグラフ状のマップを、ノードからノードへ移動しながら進み、敵のボスを倒すことを目指すターン制のブラウザゲームです。"
   }
