@@ -55,7 +55,7 @@ export default defineConfig({
     noExternal: ["vuetify"]
   },
   ssgOptions: {
-    // /services/jinro/ を services/jinro/index.html として出力する
+    // /about/ を about/index.html として出力する
     dirStyle: "nested",
     // 動的ルート（404 用の catch-all）は除き、代わりに /404 を描画する
     includedRoutes: paths =>

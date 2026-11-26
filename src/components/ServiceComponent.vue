@@ -24,14 +24,6 @@
               class="service-link"
               >{{ service.url }}</a
             >
-            <v-spacer />
-            <v-btn
-              v-if="service.page"
-              :to="service.page"
-              variant="tonal"
-              append-icon="$next"
-              >詳しく見る</v-btn
-            >
           </v-card-actions>
         </v-card>
       </v-card-text>

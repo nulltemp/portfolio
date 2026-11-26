@@ -1,57 +1,18 @@
 import { test, expect } from "@playwright/test";
-import services from "../../src/data/services.js";
 import { SITE_URL, pages } from "../../src/data/pages.js";
-
-test.describe("サービス詳細ページ", () => {
-  for (const service of services.filter(s => s.page)) {
-    test(`${service.title} のページが表示される`, async ({ page }) => {
-      await page.goto(service.page);
-      await expect(page).toHaveTitle(`${service.title} | nulltemp's portfolio`);
-      await expect(
-        page.getByRole("heading", { level: 1, name: service.title })
-      ).toBeVisible();
-      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-        "href",
-        "https://nulltemp.com" + service.page
-      );
-      await expect(
-        page.locator(`a[href="${service.url}"][target="_blank"]`).first()
-      ).toBeVisible();
-    });
-  }
-
-  test("トップの「詳しく見る」から詳細ページへ移動し、一覧に戻れる", async ({
-    page
-  }) => {
-    const [first] = services.filter(s => s.page);
-    await page.goto("/#service");
-    await page
-      .locator(`#service a[href="${first.page}"]`, { hasText: "詳しく見る" })
-      .click();
-    await expect(page).toHaveURL(new RegExp(`${first.page}$`));
-    await expect(
-      page.getByRole("heading", { level: 1, name: first.title })
-    ).toBeVisible();
-
-    await page.getByRole("link", { name: "サービス一覧に戻る" }).click();
-    await expect(page).toHaveURL(/\/#service$/);
-    await expect(page.locator("#service")).toBeInViewport();
-  });
-});
 
 test.describe("プリレンダリング", () => {
   test("JavaScript なしでも本文が HTML に含まれている", async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
-    const [service] = services.filter(s => s.page);
-    await page.goto(service.page);
+    await page.goto("/about/");
     await expect(
-      page.getByRole("heading", { level: 1, name: service.title })
+      page.getByRole("heading", { level: 1, name: "このサイトについて" })
     ).toBeVisible();
     await context.close();
   });
 
-  const paths = ["/", "/about/", ...services.map(s => s.page), "/404.html"];
+  const paths = [...pages, "/404.html"];
   for (const path of paths) {
     test(`${path} の HTML の言語が日本語になっている`, async ({ request }) => {
       const html = await (await request.get(path)).text();
@@ -90,6 +51,7 @@ test("sitemap.xml に全ページが載っている", async ({ request }) => {
     expect(xml).toContain(`<loc>${SITE_URL}${path}</loc>`);
   }
   expect(xml).not.toContain("/404");
+  expect(xml).not.toContain("/services/");
   for (const [, date] of xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)) {
     expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   }
