@@ -32,6 +32,8 @@ export function pageSources(path) {
   const sources = [`src/pages/${pageFile(path)}`];
   // トップページの内容は各セクションのコンポーネントとデータにある
   if (path === "/") sources.push("src/components", "src/data");
+  // /about/ の構造化データの運営者情報は person.js から来る
+  if (path === "/about/") sources.push("src/data/person.js");
   // 詳細ページのタイトル・説明は services.js から来る
   if (path.startsWith("/services/")) {
     sources.push(

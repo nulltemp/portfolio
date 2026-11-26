@@ -17,6 +17,7 @@ import WorkComponent from "@/components/WorkComponent.vue";
 import ServiceComponent from "@/components/ServiceComponent.vue";
 import LinkComponent from "@/components/LinkComponent.vue";
 import ContactComponent from "@/components/ContactComponent.vue";
+import person from "@/data/person";
 
 const title = "nulltemp's portfolio | プログラマ nulltemp のポートフォリオ";
 const description =
@@ -56,21 +57,7 @@ export default {
             url: "https://nulltemp.com/",
             name: "nulltemp's portfolio",
             inLanguage: "ja",
-            mainEntity: {
-              "@type": "Person",
-              name: "nulltemp",
-              alternateName: "nulltemp1",
-              jobTitle: "プログラマ",
-              url: "https://nulltemp.com/",
-              sameAs: [
-                "https://github.com/nulltemp",
-                "https://qiita.com/nulltemp",
-                "https://twitter.com/nulltemp1",
-                "https://nulltemp.hatenablog.com/",
-                "https://lapras.com/public/KQD5ZUC",
-                "https://teratail.com/users/nulltemp"
-              ]
-            }
+            mainEntity: person
           })
         }
       ]

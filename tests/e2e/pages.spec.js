@@ -94,3 +94,67 @@ test("sitemap.xml に全ページが載っている", async ({ request }) => {
     expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   }
 });
+
+test.describe("構造化データ", () => {
+  for (const [path, type] of [
+    ["/", "ProfilePage"],
+    ["/about/", "AboutPage"]
+  ]) {
+    test(`${path} に ${type} の JSON-LD があり、url が canonical と一致する`, async ({
+      page
+    }) => {
+      await page.goto(path);
+      const json = await page
+        .locator('script[type="application/ld+json"]')
+        .textContent();
+      const data = JSON.parse(json);
+      expect(data["@type"]).toBe(type);
+      expect(data.url).toBe(
+        await page.locator('link[rel="canonical"]').getAttribute("href")
+      );
+      expect(data.mainEntity).toMatchObject({
+        "@type": "Person",
+        name: "nulltemp"
+      });
+    });
+  }
+});
+
+test.describe("Google アナリティクス・AdSense", () => {
+  const trackers =
+    /googletagmanager\.com|google-analytics\.com|googlesyndication\.com|doubleclick\.net/;
+  for (const path of ["/", "/about/", "/privacy/"]) {
+    test(`本番以外のホスト名では ${path} で読み込まない`, async ({ page }) => {
+      const requested = [];
+      page.on("request", req => requested.push(req.url()));
+      await page.goto(path);
+      await page.waitForLoadState("load");
+      expect(requested.filter(url => trackers.test(url))).toEqual([]);
+      expect(await page.evaluate(() => typeof window.gtag)).toBe("undefined");
+    });
+  }
+
+  test("本番のホスト名（nulltemp.com）では読み込む", async ({
+    page,
+    baseURL
+  }) => {
+    const requested = [];
+    // nulltemp.com へのリクエストは手元の dist/ から返し、計測・広告のホストへは送らずに記録だけする
+    await page.route("https://nulltemp.com/**", async route => {
+      const url = new URL(route.request().url());
+      const response = await route.fetch({
+        url: new URL(url.pathname + url.search, baseURL).toString()
+      });
+      await route.fulfill({ response });
+    });
+    await page.route(trackers, route => {
+      requested.push(route.request().url());
+      return route.abort();
+    });
+    await page.goto("https://nulltemp.com/");
+    await expect
+      .poll(() => requested.map(url => new URL(url).hostname).sort())
+      .toEqual(["pagead2.googlesyndication.com", "www.googletagmanager.com"]);
+    expect(await page.evaluate(() => typeof window.gtag)).toBe("function");
+  });
+});

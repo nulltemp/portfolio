@@ -124,6 +124,7 @@
 import { useHead } from "@unhead/vue";
 import BaseLayout from "@/components/BaseLayout.vue";
 import services from "@/data/services";
+import person from "@/data/person";
 
 const title = "このサイトについて | nulltemp's portfolio";
 const description =
@@ -146,6 +147,20 @@ export default {
         { property: "og:url", content: url },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description }
+      ],
+      script: [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            url,
+            name: title,
+            description,
+            inLanguage: "ja",
+            mainEntity: person
+          })
+        }
       ]
     });
   },
