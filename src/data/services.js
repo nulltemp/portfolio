@@ -20,7 +20,7 @@ export default [
     url: "https://dev-tools.nulltemp.com/",
     page: "/services/dev-tools/",
     description:
-      "JSON整形、JWTデコーダー、Base64・URLエンコード、UUID生成、ハッシュ生成など、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
+      "JSON整形、JWTデコーダー、Base64・URLエンコード、UUID生成、ハッシュ生成、テキスト差分など、開発時に役立つツールをまとめたNext.js製のWebアプリです。"
   },
   {
     title: "だまって人狼",
