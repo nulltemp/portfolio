@@ -90,6 +90,35 @@ test("削除したサービス紹介ページの旧 URL を各サービスのサ
   expect(rules).toHaveLength(Object.keys(oldPages).length * 2);
 });
 
+test.describe("OGP 画像", () => {
+  for (const path of pages) {
+    test(`${path} に og:image と twitter:image がある`, async ({ page }) => {
+      await page.goto(path);
+      const ogImage = await page
+        .locator('meta[property="og:image"]')
+        .getAttribute("content");
+      expect(ogImage).toBe(`${SITE_URL}/og.png`);
+      expect(
+        await page.locator('meta[name="twitter:image"]').getAttribute("content")
+      ).toBe(ogImage);
+      expect(
+        await page.locator('meta[name="twitter:card"]').getAttribute("content")
+      ).toBe("summary_large_image");
+      await expect(page.locator('meta[property="og:image"]')).toHaveCount(1);
+    });
+  }
+
+  test("og.png が 1200×630 の PNG として配信される", async ({ request }) => {
+    const response = await request.get("/og.png");
+    expect(response.ok()).toBe(true);
+    expect(response.headers()["content-type"]).toBe("image/png");
+    const body = await response.body();
+    // PNG の IHDR チャンクにある幅と高さ
+    expect(body.readUInt32BE(16)).toBe(1200);
+    expect(body.readUInt32BE(20)).toBe(630);
+  });
+});
+
 test.describe("構造化データ", () => {
   for (const [path, type] of [
     ["/", "ProfilePage"],
