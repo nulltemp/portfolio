@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!-- ページごとの title・description・canonical・OGP・構造化データは各ページの useHead で設定する -->
+    <!-- ページごとの title・description・canonical・OGP（画像以外）・構造化データは各ページの useHead で設定する -->
     <meta name="author" content="nulltemp">
     <meta name="theme-color" content="#f5f5f5">
 
     <meta property="og:site_name" content="nulltemp's portfolio">
     <meta property="og:locale" content="ja_JP">
-    <meta name="twitter:card" content="summary">
+    <!-- OGP 画像（public/og.png、1200×630）は全ページ共通なのでここに置く -->
+    <meta property="og:image" content="https://nulltemp.com/og.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="nulltemp's portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://nulltemp.com/og.png">
     <meta name="twitter:site" content="@nulltemp1">
     <meta name="twitter:creator" content="@nulltemp1">
 
