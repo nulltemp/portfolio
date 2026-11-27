@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { SITE_URL, pages } from "../../src/data/pages.js";
+import services from "../../src/data/services.js";
 
 test.describe("プリレンダリング", () => {
   test("JavaScript なしでも本文が HTML に含まれている", async ({ browser }) => {
@@ -55,6 +56,38 @@ test("sitemap.xml に全ページが載っている", async ({ request }) => {
   for (const [, date] of xml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)) {
     expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   }
+});
+
+// vite preview は _redirects を解釈しないので、配信される dist/_redirects の中身を確かめる
+test("削除したサービス紹介ページの旧 URL を各サービスのサイトへ 301 で転送する", async ({
+  request
+}) => {
+  const response = await request.get("/_redirects");
+  expect(response.ok()).toBe(true);
+  const rules = (await response.text())
+    .split("\n")
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith("#"))
+    .map(line => line.split(/\s+/));
+  const redirects = new Map(
+    rules.map(([from, to, status]) => [from, { to, status }])
+  );
+  const oldPages = {
+    "coin-catching-game": "https://coin-catching-game.nulltemp.com/",
+    "life-game": "https://life-game-vue.nulltemp.com/",
+    "dev-tools": "https://dev-tools.nulltemp.com/",
+    jinro: "https://jinro.nulltemp.com/",
+    "proc-quest": "https://proc-quest.nulltemp.com/"
+  };
+  const serviceUrls = services.map(service => service.url);
+  for (const [slug, url] of Object.entries(oldPages)) {
+    // 転送先は今も services.js に載っているサービスのサイト
+    expect(serviceUrls).toContain(url);
+    for (const from of [`/services/${slug}/`, `/services/${slug}`]) {
+      expect(redirects.get(from)).toEqual({ to: url, status: "301" });
+    }
+  }
+  expect(rules).toHaveLength(Object.keys(oldPages).length * 2);
 });
 
 test.describe("構造化データ", () => {

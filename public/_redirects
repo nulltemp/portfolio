@@ -1,0 +1,14 @@
+# Cloudflare Pages のリダイレクト（https://developers.cloudflare.com/pages/configuration/redirects/）
+# 2026-11-26 に削除したサービス紹介ページ（/services/*/、#97）の旧 URL を、各サービスのサイトへ転送する（#101）。
+# 末尾スラッシュなしの URL も来るので、両方の形を書く。
+
+/services/coin-catching-game/ https://coin-catching-game.nulltemp.com/ 301
+/services/coin-catching-game https://coin-catching-game.nulltemp.com/ 301
+/services/life-game/ https://life-game-vue.nulltemp.com/ 301
+/services/life-game https://life-game-vue.nulltemp.com/ 301
+/services/dev-tools/ https://dev-tools.nulltemp.com/ 301
+/services/dev-tools https://dev-tools.nulltemp.com/ 301
+/services/jinro/ https://jinro.nulltemp.com/ 301
+/services/jinro https://jinro.nulltemp.com/ 301
+/services/proc-quest/ https://proc-quest.nulltemp.com/ 301
+/services/proc-quest https://proc-quest.nulltemp.com/ 301
