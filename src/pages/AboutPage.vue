@@ -63,29 +63,13 @@
           開発で調べたことや作ったものについては、次のサイトで発信しています。
         </p>
         <ul>
-          <li>
-            ブログ：<a
-              href="https://nulltemp.hatenablog.com/"
+          <li v-for="item in publishing" :key="item.url">
+            {{ item.label }}：<a
+              :href="item.url"
               target="_blank"
               rel="noopener"
-              >nulltemp.hatenablog.com</a
-            >
-          </li>
-          <li>
-            Qiita：<a
-              href="https://qiita.com/nulltemp"
-              target="_blank"
-              rel="noopener"
-              >qiita.com/nulltemp</a
-            >
-          </li>
-          <li>
-            GitHub：<a
-              href="https://github.com/nulltemp"
-              target="_blank"
-              rel="noopener"
-              >github.com/nulltemp</a
-            >（一部のサービスのソースコードを公開しています）
+              >{{ item.text }}</a
+            >{{ item.note }}
           </li>
         </ul>
 
@@ -127,6 +111,26 @@ import { useHead } from "@unhead/vue";
 import BaseLayout from "@/components/BaseLayout.vue";
 import services from "@/data/services";
 import person from "@/data/person";
+import { findLink } from "@/data/links";
+
+// 「技術情報の発信」に載せるリンク。表示するテキストは URL からスキームと末尾のスラッシュを除いたもの
+const publishing = [
+  { id: "blog", label: "ブログ" },
+  { id: "qiita", label: "Qiita" },
+  {
+    id: "github",
+    label: "GitHub",
+    note: "（一部のサービスのソースコードを公開しています）"
+  }
+].map(({ id, label, note = "" }) => {
+  const { url } = findLink(id);
+  return {
+    label,
+    url,
+    text: url.replace(/^https:\/\//, "").replace(/\/$/, ""),
+    note
+  };
+});
 
 const title = "このサイトについて | nulltemp's portfolio";
 const description =
@@ -168,7 +172,8 @@ export default {
   },
   data() {
     return {
-      services
+      services,
+      publishing
     };
   }
 };
