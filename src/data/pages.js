@@ -25,9 +25,14 @@ export function pageSources(path) {
   const sources = [`src/pages/${pageFile(path)}`];
   // トップページの内容は各セクションのコンポーネントとデータにある
   if (path === "/") sources.push("src/components", "src/data");
-  // /about/ の構造化データの運営者情報は person.js、サービスの一覧は services.js から来る
+  // /about/ の構造化データの運営者情報は person.js、サービスの一覧は services.js、
+  // 「技術情報の発信」と sameAs のリンクは links.js から来る
   if (path === "/about/") {
-    sources.push("src/data/person.js", "src/data/services.js");
+    sources.push(
+      "src/data/person.js",
+      "src/data/services.js",
+      "src/data/links.js"
+    );
   }
   return sources;
 }

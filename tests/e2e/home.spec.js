@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import services from "../../src/data/services.js";
+import links from "../../src/data/links.js";
 
 const sections = ["profile", "link", "skill", "work", "service", "contact"];
 
@@ -56,6 +57,20 @@ test.describe("トップページ", () => {
     await expect(serviceSection.locator('a[href^="/services/"]')).toHaveCount(
       0
     );
+  });
+
+  test("Link 欄のリンクが構造化データの sameAs と同じ順に並ぶ", async ({
+    page
+  }) => {
+    const hrefs = await page
+      .locator("#link a")
+      .evaluateAll(els => els.map(el => el.getAttribute("href")));
+    const urls = links.map(link => link.url);
+    expect(hrefs).toEqual(urls);
+    const json = await page
+      .locator('script[type="application/ld+json"]')
+      .textContent();
+    expect(JSON.parse(json).mainEntity.sameAs).toEqual(urls);
   });
 });
 

@@ -7,9 +7,9 @@
       <v-card-text>
         <!-- アイコンは同じ大きさの丸に収め、名前を下に添えて見た目をそろえる。アイコンのないサービスは共通のリンクアイコンを使う -->
         <ul class="link-list">
-          <li v-for="link in links" :key="link.value">
+          <li v-for="link in links" :key="link.url">
             <a
-              :href="link.value"
+              :href="link.url"
               target="_blank"
               rel="me noopener noreferrer"
               class="link-item"
@@ -33,6 +33,15 @@ import GitHubImage from "@/assets/GitHub-Mark-120px-plus.png";
 import QiitaImage from "@/assets/qiita-favicon.png";
 import TwitterImage from "@/assets/Twitter_Social_Icon_Circle_Color.svg";
 import HatenaImage from "@/assets/hatenablog-logo.svg";
+import links from "@/data/links";
+
+// アイコン画像のあるリンク（無いものは共通のリンクアイコン）
+const images = {
+  github: GitHubImage,
+  qiita: QiitaImage,
+  twitter: TwitterImage,
+  blog: HatenaImage
+};
 
 export default {
   components: {
@@ -40,30 +49,7 @@ export default {
   },
   data() {
     return {
-      links: [
-        {
-          title: "GitHub",
-          value: "https://github.com/nulltemp",
-          image: GitHubImage
-        },
-        {
-          title: "Qiita",
-          value: "https://qiita.com/nulltemp",
-          image: QiitaImage
-        },
-        {
-          title: "Twitter",
-          value: "https://twitter.com/nulltemp1",
-          image: TwitterImage
-        },
-        {
-          title: "Blog",
-          value: "https://nulltemp.hatenablog.com/",
-          image: HatenaImage
-        },
-        { title: "LAPRAS", value: "https://lapras.com/public/KQD5ZUC" },
-        { title: "teratail", value: "https://teratail.com/users/nulltemp" }
-      ]
+      links: links.map(link => ({ ...link, image: images[link.id] }))
     };
   }
 };
