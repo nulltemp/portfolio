@@ -91,7 +91,7 @@ test("削除したサービス紹介ページの旧 URL を各サービスのサ
 });
 
 test.describe("OGP 画像", () => {
-  for (const path of pages) {
+  for (const path of [...pages, "/privacy/"]) {
     test(`${path} に og:image と twitter:image がある`, async ({ page }) => {
       await page.goto(path);
       const ogImage = await page
@@ -158,12 +158,12 @@ test.describe("Google アナリティクス・AdSense", () => {
     });
   }
 
-  test("本番のホスト名（nulltemp.com）では読み込む", async ({
-    page,
-    baseURL
-  }) => {
+  // テストの終わりに処理中のルートが残っていてもエラーにしない
+  test.afterEach(({ page }) => page.unrouteAll({ behavior: "ignoreErrors" }));
+
+  // nulltemp.com へのリクエストは手元の dist/ から返し、計測・広告のホストへは送らずに記録だけする
+  async function openAsProduction(page, baseURL, url) {
     const requested = [];
-    // nulltemp.com へのリクエストは手元の dist/ から返し、計測・広告のホストへは送らずに記録だけする
     await page.route("https://nulltemp.com/**", async route => {
       const url = new URL(route.request().url());
       const response = await route.fetch({
@@ -175,10 +175,63 @@ test.describe("Google アナリティクス・AdSense", () => {
       requested.push(route.request().url());
       return route.abort();
     });
-    await page.goto("https://nulltemp.com/");
-    await expect
-      .poll(() => requested.map(url => new URL(url).hostname).sort())
-      .toEqual(["pagead2.googlesyndication.com", "www.googletagmanager.com"]);
-    expect(await page.evaluate(() => typeof window.gtag)).toBe("function");
+    await page.goto(url);
+    await page.waitForLoadState("load");
+    return () => requested.map(url => new URL(url).hostname).sort();
+  }
+
+  for (const path of ["/", "/about/"]) {
+    test(`本番のホスト名（nulltemp.com）では ${path} で読み込む`, async ({
+      page,
+      baseURL
+    }) => {
+      const hosts = await openAsProduction(
+        page,
+        baseURL,
+        `https://nulltemp.com${path}`
+      );
+      await expect
+        .poll(hosts)
+        .toEqual(["pagead2.googlesyndication.com", "www.googletagmanager.com"]);
+      expect(await page.evaluate(() => typeof window.gtag)).toBe("function");
+    });
+  }
+
+  // Cloudflare Pages は存在しない URL に dist/404.html を返す。コンテンツのない画面なので広告は読み込まない（#105）
+  test("本番のホスト名でも 404 ページでは AdSense を読み込まない", async ({
+    page,
+    baseURL
+  }) => {
+    const hosts = await openAsProduction(
+      page,
+      baseURL,
+      "https://nulltemp.com/404.html"
+    );
+    await expect(
+      page.getByRole("heading", { level: 1, name: "ページが見つかりません" })
+    ).toBeVisible();
+    await expect.poll(hosts).toEqual(["www.googletagmanager.com"]);
+    expect(hosts()).not.toContain("pagead2.googlesyndication.com");
+  });
+});
+
+test.describe("プライバシーポリシー", () => {
+  test("お問い合わせフォームと運営者情報（/about/）へのリンクがある", async ({
+    page
+  }) => {
+    // お問い合わせフォームの URL は、トップページの Contact と同じもの
+    await page.goto("/");
+    const formUrl = await page
+      .getByRole("link", { name: "お問い合わせフォームを開く" })
+      .getAttribute("href");
+    expect(formUrl).toMatch(/^https:\/\/docs\.google\.com\/forms\//);
+
+    await page.goto("/privacy/");
+    await expect(
+      page.getByRole("link", { name: "お問い合わせフォーム" })
+    ).toHaveAttribute("href", formUrl);
+    await expect(
+      page.getByRole("link", { name: "このサイトについて" })
+    ).toHaveAttribute("href", "/about/");
   });
 });

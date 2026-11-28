@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap">
 
     <!-- Google Analytics（gtag.js）と Google AdSense は本番（nulltemp.com）でだけ読み込む。
-         開発サーバー・UI テスト（vite preview）・Cloudflare Pages のプレビューは計測せず、広告も出さない -->
+         開発サーバー・UI テスト（vite preview）・Cloudflare Pages のプレビューは計測せず、広告も出さない。
+         AdSense は 404 ページでも読み込まない（コンテンツのない画面に広告を出さないため、#105） -->
     <script>
       if (location.hostname === "nulltemp.com") {
         (function () {
@@ -42,11 +43,16 @@
           gtag("js", new Date());
           gtag("config", "G-Z2N4Q3MS7Y");
 
-          var ads = document.createElement("script");
-          ads.async = true;
-          ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9346151537776034";
-          ads.crossOrigin = "anonymous";
-          document.head.appendChild(ads);
+          // AdSense は 404 ページ（NotFoundPage.vue が robots noindex を付ける）では読み込まない。
+          // その meta はこのスクリプトより後に出力されるので、<head> を読み終えてから確かめる
+          document.addEventListener("DOMContentLoaded", function () {
+            if (document.querySelector('meta[name="robots"][content~="noindex"]')) return;
+            var ads = document.createElement("script");
+            ads.async = true;
+            ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9346151537776034";
+            ads.crossOrigin = "anonymous";
+            document.head.appendChild(ads);
+          });
         })();
       }
     </script>
